@@ -1,0 +1,34 @@
+<div class="site-content">
+    <div class="content-area">
+        <div class="site-main">
+            <header class="pagina-giros-site">
+                <h1 class="titulo-giros-site">Coin Master: Giros e moedas grátis atualizados diariamente</h1>
+            </header>
+            <div class="pagina-giros-content">
+                <p>Todos os links são disponibilizados pelo próprio Coin Master em suas redes sociais. Nossa equipe junta esses links nessa página para economizar seu tempo e tornar sua vida mais fácil.</p>
+                <div class="anuncios__block">
+                    <div class="anuncios__titulo">
+                        ANUNCIOS
+                    </div>
+                </div>
+                <div class="card__tabela__links">
+                    {{#each dados}}
+                        <p><strong>{{data}}</strong></p>
+                        <table class="tabela__giros__links">
+                            <tbody>
+                                {{#lista}}
+                                    <tr>
+                                        <td>{{titulo}}</td>
+                                        <td><a class="btn_coletar" href="{{link}}" target="_blank">COLETAR 🐷</a></td>
+                                    </tr>
+                                {{/lista}}
+                            </tbody>
+                        </table>
+                    {{else}}
+                        <p><strong>Nenhuma coleta disponivel</strong></p>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+.pagina-giros-site, .site-content {
+    word-wrap: break-word;
+}
+
+.pagina-giros-site {
+    margin-bottom: 0;
+}
+
+.pagina-giros-site .titulo-giros-site {
+    font-family: "Rajdhani",sans-serif;
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 1.2em;
+    color: var(--pretoclaro);
+    text-align: center;
+}
+
+.pagina-giros-content:not(:first-child) {
+    margin-top: 2em;
+}
+
+.pagina-giros-content p {
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    color: var(--pretoclaro);
+    text-align: justify;
+}
+
+.anuncios__block {
+    min-height: 100px;
+}
+
+.anuncios__titulo {
+    text-align: center;
+    color: #999;
+    font-size: 9px;
+    font-weight: 400;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+
+.card__tabela__links p {
+    text-align: center;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+
+.tabela__giros__links {
+    border: 1px solid #0000003b;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.tabela__giros__links tbody {
+    display: grid;
+    gap: 20px;
+}
+
+.tabela__giros__links tbody tr td {
+    width: 10rem;
+    display: flex;
+    align-items: center;
+}
+
+.tabela__giros__links tbody tr td:nth-child(1) {
+    justify-content: start;
+}
+
+.tabela__giros__links tbody tr td:nth-child(2) {
+    justify-content: center;
+}
+
+.tabela__giros__links tbody tr td:nth-child(3) {
+    justify-content: end;
+}
+
+.tabela__giros__links tbody tr td a {
+    border: 1px solid #d8d8d8;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: #eee;
+    color: #000;
+    transition: all .5s;
+}
+
+.tabela__giros__links tbody tr td a:hover {
+    background: var(--vermelho);
+    border: 1px solid #3333;
+}
+
+.tabela__giros__links tbody tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

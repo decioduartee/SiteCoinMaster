@@ -1,0 +1,228 @@
+.main-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.pagina.grid-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: var(--vermelho);
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(179,179,179,.7);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.containerEdit {
+    height: 500px;
+}
+
+.box {
+    position: absolute;
+    width: 100%;
+}
+
+.upper {
+    top: 0;
+    height: 130px;
+    background: var(--vermelho);
+    color: #fff;
+    border-radius: 0 0 80px 0;
+}
+
+.upper1 {
+    top: 0;
+    height: 110px;
+    background: var(--vermelho);
+    color: #fff;
+    border-radius: 0 0 80px 0;
+}
+
+.upper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: -1;
+}
+
+.upper h1 {
+    padding: 1rem 0 0 1.3rem;
+}
+
+.upper h6 {
+    padding: 0 1.4rem;
+}
+
+.lower {
+    bottom: 0;
+    height: 270px;
+    background: #fff;
+    border-radius: 80px 0 0 0;
+}
+
+.lower1 {
+    bottom: 0;
+    height: 390px;
+    background: #fff;
+    border-radius: 80px 0 0 0;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.input {
+    position: relative;
+}
+
+.olho__magico {
+    position: absolute;
+    font-size: 18px;
+    right: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--cinza);
+    cursor: pointer;
+}
+
+.input .form__input {
+    width: 260px;
+    height: 45px;
+    outline: none;
+    padding: 0 .7rem;
+    padding-right: 35px;
+    border: 1px solid #DADCE0;
+    border-radius: 3px;
+    transition: .2s;
+}
+
+.form__input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px var(--branco) inset;
+}
+
+.input .form__label {
+    position: absolute;
+    top: .85rem;
+    left: 1rem;
+    color: #80868b;
+    background: var(--branco);
+    font-size: .9rem;
+    transition: .2s;
+    padding: 0 .1rem;
+}
+
+.form__input:focus + .form__label {
+    top: -.5rem;
+    left: .8rem;
+    color: var(--vermelho);
+    font-size: .80rem;
+    font-weight: 500;
+    z-index: 10;
+}
+
+.form__input:not(:placeholder-shown).form__input:not(:focus)+ .form__label,
+.form__input:-webkit-autofill ~ .form__label {
+    top: -.5rem;
+    left: .8rem;
+    font-size: .80rem;
+    font-weight: 500;
+    z-index: 10;
+}
+
+.form__input:focus {
+    border: 1.5px solid var(--vermelho);
+}
+
+.login-btn {
+    width: 260px;
+    height: 45px;
+    outline: none;
+    padding: 0 .7rem;
+    background: var(--vermelho);
+    color: var(--branco);
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.div__img__user {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100px;
+    background: #ececec;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.div__img__user img {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* btn registro */
+.loader-button {
+    background: var(--vermelho);
+    color: var(--branco);
+    border-radius: 3px;
+    width: 260px;
+    height: 45px;
+    line-height: 0px;
+    outline: none;
+    padding: 0 .7rem;
+    border: none;
+    cursor: pointer;
+    transition: 250ms ease;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+@keyframes loading {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.loading {
+    color: transparent;
+}
+
+.loading:after {
+    content: " ";
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 50%;
+    border: 2px solid var(--branco);
+    border-color: var(--branco) transparent var(--branco) transparent;
+    animation: loading 1s linear infinite;
+}

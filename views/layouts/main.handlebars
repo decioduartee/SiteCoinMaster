@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--========== BOX ICONS ==========-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="/css/navbar.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/painel.css">
+        <link rel="stylesheet" href="/css/giro.css">
+        <link rel="stylesheet" href="/css/login.css">
+        <link rel="stylesheet" href="/css/msg.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <!--========== JS ==========-->
+        <script defer src="/js/main.js"></script>
+        <script defer src="/js/navbar.js"></script>
+        <script defer src="/js/painel.js"></script>
+        <script defer src="/js/registro.js"></script>
+        <script defer src="/js/login.js"></script>
+        <script defer src="/js/giros.js"></script>
+        <!--========== Titulo ==========-->
+        <title>Coin Master</title>
+    </head>
+    <body>
+        {{>_navbar}}
+        <div class="pagina grid-container">
+            {{#if error}}
+                <div class="alert error_msg">{{error}}</div>
+            {{else}}
+            {{/if}}
+            {{>_msg}}
+            {{{body}}}
+        </div>
+        {{>_footer}}
+    </body>
+</html>

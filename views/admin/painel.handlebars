@@ -1,0 +1,112 @@
+<!--========== SECTION PAINEL==========-->
+<section id="" class="section-painel">
+    <!--========== HEADER ==========-->
+    <header class="header">
+        <nav id="" class="nav">
+            <div class="painel-left">
+                <div class="content-titulo-painel">
+                    <i class='iconSinalizadorPainel bx bx-home-smile'></i>
+                    <h1 class="titulo-painel">
+                        Painel
+                    </h1>
+                </div>
+                <div id="btn-painel1" class="btn-painel">
+                    <div class="btn-painel__burger"></div>
+                </div>
+            </div>
+            <div class="client-right">
+                <div id="btn-painel2" class="btn-painel btn-client-right">
+                    <div class="btn-painel__burger mobile"></div>
+                </div>
+                <div class="client__content">
+                    {{#if usuarioLogado}}
+                        <h1 class="client-nome">
+                            {{usuarioLogado.nome}}
+                        </h1>
+                    {{else}}
+                    {{/if}}
+                    <div class="client-imagem">
+                        <img src="/img/user.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="float-background">
+        <img src="/img/flot-background.jpg" alt="">
+    </div>
+    <div id="menu-painel" class="menu-painel">
+        <div class="titulo-dentro-do-painel">
+            <h1>Módulos central</h1>
+        </div>
+        <div class="content-titulo-de-categorias">
+            <div class="nomes-principais">
+                <a href="" class="links-menu">
+                    <div id="painel" class="titulo-categoria">
+                        <i class='icon-menu bx bx-home-smile'></i>
+                        <h1 class="nome-painel">Painel</h1>
+                    </div>
+                </a>
+                <a href="" class="links-menu">
+                    <div id="imobiliaria" class="titulo-categoria">
+                        <i class='icon-menu bx bx-category'></i>
+                        <h1 class="nome-imobiliaria">Giros</h1>
+                    </div>
+                </a>
+                <a href="" class="links-menu">
+                    <div id="chaves" class="titulo-categoria">
+                        <i class='icon-menu bx bx-key'></i>
+                        <h1 class="nome-chaves">Usuarios</h1>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-usuario-right">
+        <div class="content-usuario">
+            <div class="titulo-usuario">
+                {{#if usuarioLogado}}
+                    <h1>Perfil de {{usuarioLogado.cargo}}</h1>
+                {{else}}
+                {{/if}}
+                <div class="close-menu-usuario">
+                    <i class='icon-close bx bx-x'></i>
+                </div>
+            </div>
+            <div class="content-usuario-info">
+                <div class="img-usuario-painel">
+                    <img src="/img/user.png" alt="">
+                </div>
+                <div class="content-usuario-info-nomes-links">
+                    <div class="usuario-nome">
+                        {{#if usuarioLogado}}
+                        <h1>
+                            {{usuarioLogado.nome}}
+                        </h1>
+                        {{else}}
+                        {{/if}}
+                    </div>
+                    <div class="usuario-email">
+                        <i class='icon-email bx bx-mail-send'></i>
+                        {{#if usuarioLogado}}
+                            <h1 class="client-nome">
+                                {{usuarioLogado.email}}
+                            </h1>
+                        {{else}}
+                        {{/if}}
+                    </div>
+                    <div class="btns-usuario">
+                        <a href="/admin/sair" class="btn-sair-usuario">
+                            Sair
+                        </a>
+                        <a href="" class="btn-config-usuario">
+                            <i class='icon-menu bx bx-cog'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+*,::before,::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --branco: #fff;
+    --pretopadrao: #2d333b;
+    --pretoescuro: #22272e; 
+    --pretoclaro: #373e47;
+    --cinza: #b5b3b1;
+    --cinzaescuro: #707579;
+    --vermelho: red;
+    --erromsg: #ff0000bd;
+    --verde: #30c157;
+
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--branco);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html, iframe, legend, li, ol, p, pre, textarea, ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+p {
+    margin-bottom: 1.5em;
+}
+
+table, td, th {
+    border: none;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 8px 8px;
+    margin-top: -8px;
+}
+
+td {
+    border-left-width: 0;
+}
+
+td:first-child {
+    border-left-width: 1px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    background: #F4F4F4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--vermelho);
+    border-radius: 8px;
+}
+
+.pagina {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.grid-container {
+    margin-top: 4.1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+    max-width: 1200px;
+}
+
+.site-content {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    word-wrap: break-word;
+    display: flex;
+}
+
+.site-content .content-area {
+    width: 100%;
+}
+
+.site-main {
+    margin: 20px 0 20px;
+}
+

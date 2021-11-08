@@ -1,0 +1,19 @@
+.alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 3rem;
+    padding: 1rem;
+    border-radius: 3px;
+}
+
+.error_msg {
+    background: var(--erromsg);
+}
+
+.success_msg {
+    background: var(--verde);
+}

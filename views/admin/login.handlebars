@@ -1,0 +1,28 @@
+<div class="main-container">
+    <div class="container">
+        <div class="upper box">
+            <h1>Login</h1>
+            <h6>Acesso a dashboard</h6>
+        </div>
+        <div class="lower box">
+            <form action="/admin/" method="POST">
+                <div class="input">
+                    <input class="form__input" type="text" name="emailLogin" placeholder=" " required>
+                    <label class="form__label" for="emailLogin">
+                        Email
+                    </label>
+                </div>
+                <div class="input">
+                    <div class="olho__magico">
+                        <i class='icon__olho__magico bx bx-low-vision'></i>
+                    </div>
+                    <input class="form__input input__senha__login" type="password" name="senhaLogin" placeholder=" " required>
+                    <label class="form__label" for="senhaLogin">
+                        Senha
+                    </label>
+                </div>
+                <button onclick="this.classList.toggle('loading')" type="submit" class="loader-button">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

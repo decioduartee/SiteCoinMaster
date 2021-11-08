@@ -1,0 +1,61 @@
+</div>
+<div id="top" class="row">
+    <div class="col-sm-3">
+        <h3>Usuarios</h3>
+    </div>
+    <div class="col-sm-6">
+        <div class="input-group h2" style="gap: 20px">
+            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Usuarios">
+            <span class="input-group-btn d-flex">
+                <button class="btn btn-primary" type="submit">
+                    <i class='bx bx-search-alt'></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+<br><br>
+<div id="list" class="row">
+    <div class="table-responsive col-md-12">
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Data</th>
+                    <th>ID</th>
+                    <th class="actions">Ações</th>
+                </tr>
+            </thead>
+            <tbody id="contagem-usuarios">
+            {{#each usuarios}}
+                <tr id="linha-usuario" style="white-space: nowrap;">
+                    <td></td>
+                    <td>{{nome}}</td>
+                    <td>{{email}}</td>
+                    <td>{{#formatDate data}}{{/formatDate}}</td>
+                    <td>{{_id}}</td>
+                    <td class="actions d-flex" style="justify-content: space-around;">
+                        <a class="btn btn-warning btn-xs" href="/admin/usuarios/edit/{{_id}}">Editar</a>
+                        <form action="/admin/usuarios/deletar" method="POST">
+                            <input type="hidden" name="id" value="{{_id}}">
+                            <button class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            {{else}}
+                <h4 class="mt-4">Nenhuma usuarios registrado!</h4>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    var table = document.querySelector('#contagem-usuarios'),
+    rows = table.getElementsByTagName('tr'),
+    text = 'textContent' in document ? 'textContent' : 'innerText';
+    for (var i = 0, ii = 1, len = rows.length; i < len; i++, ii++){
+        rows[i].children[0][text] = ii;
+    }
+</script>

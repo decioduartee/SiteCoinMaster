@@ -1,0 +1,52 @@
+{{#each erros}}
+    <div class="alertMsg">
+        <div class="alert error_msg">{{texto}}</div>
+    </div>
+{{else}}
+{{/each}}
+<div class="main-container">
+    <div class="container containerEdit">
+        <div class="upper upper1 box">
+            <h1>Cadastro</h1>
+            <h6>Registar Usuario</h6>
+        </div>
+        <div class="lower lower1 box">
+            <form action="/admin/registro" method="POST">
+                <div class="input">
+                    <input class="input__foto__user" type="file" name="usuarioImgRegistro" accept="image/*" hidden>
+                    <div class="div__img__user">
+                        <img class="img__user" src="/img/user.png" alt="">
+                    </div>
+                </div>
+                <div class="input">
+                    <input class="form__input" type="text" name="nomeRegistro" placeholder=" " required>
+                    <label class="form__label" for="nomeRegistro">
+                        Nome
+                    </label>
+                </div>
+                <div class="input">
+                    <input class="form__input" type="text" name="emailRegistro" placeholder=" " required>
+                    <label class="form__label" for="emailRegistro">
+                        E-mail
+                    </label>
+                </div>
+                <div class="input">
+                    <div class="olho__magico">
+                        <i class='icon__olho__magico bx bx-low-vision'></i>
+                    </div>
+                    <input class="form__input input__senha__registro" type="password" name="senhaRegistro1" placeholder=" " required>
+                    <label class="form__label" for="senhaRegistro1">
+                        Senha
+                    </label>
+                </div>
+                <div class="input">
+                    <input class="form__input input__senha__registro" type="password" name="senhaRegistro2" placeholder=" " required>
+                    <label class="form__label" for="senhaRegistro2">
+                        Confirme Senha
+                    </label>
+                </div>
+                <button onclick="this.classList.toggle('loading')" type="submit" class="loader-button">Registrar</button>
+            </form>
+        </div>
+    </div>
+</div>
