@@ -62,7 +62,7 @@ async function ligarBot() {
           dataDaURL: list[i].dataDaURL
         })
         novosDados.save().then(() => {
-          
+          console.log(`🤖 dados Salvos`)
         }).catch((err) => {
             console.log(err)
         })
