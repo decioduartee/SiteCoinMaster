@@ -1,7 +1,7 @@
 require('../models/ListaDeDadosBot')
 require('../models/EmailUsurios')
 const mongoose  = require("mongoose"),
-      DadosBot   = mongoose.model('dadosbot'),
+      DadosBot   = mongoose.model('botdados'),
       EmailUsurios = mongoose.model('emailUsuarios')
 
 module.exports = {
@@ -53,9 +53,5 @@ module.exports = {
                 })
             }
         })
-    },
-
-    async get404(req, res) {
-        res.send("Erro 404")
     }
 }

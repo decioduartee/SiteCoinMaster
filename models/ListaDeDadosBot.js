@@ -15,10 +15,9 @@ const DadosBot = new Schema({
         require: true
     },
     dataDeRegistro:{
-        type: Date,
-        default: Date.now(),
+        type: String,
         required: true
     }
 })
 
-mongoose.model("dadosbot", DadosBot)
+mongoose.model("botdados", DadosBot)

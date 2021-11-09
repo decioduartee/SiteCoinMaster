@@ -1,9 +1,9 @@
 require('../models/ListaDeDadosBot')
 const puppeteer = require('puppeteer'),
       mongoose  = require("mongoose"),
-      DadosBot  = mongoose.model('dadosbot'),
-      moment    =  require("moment"),
-      dataHoraAtual = moment(new Date()).format("DD/MM/YYYY hh:mm:ss A")
+      DadosBot  = mongoose.model('botdados');
+      moment    = require('moment'),
+      dataLocal = moment(new Date()).format("DD/MM/YYYY")
 
 
 async function ligarBot() {
@@ -25,20 +25,17 @@ async function ligarBot() {
     arrayDados = [];
 
     for (let i = 0; i < list.length; i++) {
-      let titulo = list[i].innerText;
-      let link = list[i].href;
-      let dataDaURL = list[i].href;
-      dataDaURL = dataDaURL.split('_')
-      dataDaURL = dataDaURL[2]
-
-      let editData
-
+      let editData,
+          titulo = list[i].innerText,
+          link = list[i].href,
+          dataDaURL = list[i].href;
+            dataDaURL = dataDaURL.split('_')
+            dataDaURL = dataDaURL[2]
       if(isNaN(dataDaURL) == false) {
         editData = dataDaURL[6] + dataDaURL[7] + '/' + dataDaURL[4] + dataDaURL[5] + '/' + dataDaURL[0] + dataDaURL[1] + dataDaURL[2] + dataDaURL[3]
       } else {
-        editData = "Bonus"
+        editData = "Sem Data"
       }
-
       arrayDados.push({
         titulo: titulo
           .substr(3)
@@ -51,6 +48,29 @@ async function ligarBot() {
     return arrayDados
   });
 
+  await DadosBot.find({}, {dataDeRegistro: 1, _id: 0}).then((datas) => {
+    let dados = []
+    for(let elemento of datas){
+      dados.push(elemento.dataDeRegistro);
+    }
+    dados.forEach(async (items, i) => {
+      let ListaDeDados = dados[i],
+          dataNumber = parseInt(ListaDeDados),
+          validade = dataNumber + 3,
+          dataDeHoje = new Date(),
+          diaDeHoje = dataDeHoje.getDate();
+      if(validade == diaDeHoje) {
+        await DadosBot.deleteOne({dataDeRegistro: ListaDeDados}).then(() => {
+          //console.log(`dados apagados`)
+        }).catch((erro) => {
+          console.log(erro)
+        })
+      }
+    })
+  }).catch((erro) => {
+    console.log(erro)
+  })
+
   list.forEach(async (items, i) => {
     await DadosBot.findOne({link: list[i].link}).lean().then((dados) => {
       if(dados) {
@@ -59,17 +79,17 @@ async function ligarBot() {
         const novosDados = new DadosBot({
           titulo: list[i].titulo,
           link: list[i].link,
-          dataDaURL: list[i].dataDaURL
+          dataDaURL: list[i].dataDaURL,
+          dataDeRegistro: dataLocal
         })
         novosDados.save().then(() => {
-          console.log(`🤖 dados Salvos`)
+          //console.log(`🤖 dados Salvos`)
         }).catch((err) => {
             console.log(err)
         })
       }
     })
   })
-
   debugger;
   await browser.close();
 }

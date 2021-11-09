@@ -49,6 +49,10 @@ ligarBot()
     app.use("/", usuario)
     app.use("/admin", admin)
     app.use("/moderador", moderador)
+    // Erro 404
+    app.use((req, res) => {
+        res.render("partials/404")
+    })
 // Conexao
 const PORT = process.env.PORT || 8080;
 app.listen(PORT,() => {
