@@ -96,30 +96,3 @@ a {
     user-select: none;
     letter-spacing: -0.5px;
 }
-
-.header-navbar nav ul li a:hover {
-    color: var(--pretopadrao);
-}
-
-.header-navbar .header__button_darkmode {
-    background: #b5b3b1;
-    cursor: pointer;
-    color: var(--branco);
-    height: 26px;
-    width: 26px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 18px;
-    position: absolute;
-    -webkit-transition: all .5s ease 0s;
-    transition: all .5s ease 0s;
-}
-
-.header-navbar .header__button_darkmode:hover {
-    background: var(--cinzaescuro);
-    -webkit-transition: all .5s ease 0s;
-    transition: all .5s ease 0s;
-}

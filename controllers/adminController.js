@@ -82,6 +82,10 @@ module.exports = {
     },
 
     async getPainel(req, res) {
-        res.render('admin/painel')
+        res.render("admin/homePainel")
+    },
+
+    async getUsuarios(req, res) {
+        res.render("admin/usuarios")
     }
 }

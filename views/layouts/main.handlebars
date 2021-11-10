@@ -21,10 +21,22 @@
         <script defer src="/js/registro.js"></script>
         <script defer src="/js/login.js"></script>
         <script defer src="/js/giros.js"></script>
+        <script defer src="/js/navbar.js"></script>
         <!--========== Titulo ==========-->
         <title>Coin Master</title>
     </head>
     <body>
+        {{#if cargo}}
+            {{>_navbarRoot}}
+                <div class="pagina grid-container">
+            {{#if error}}
+                <div class="alert error_msg">{{error}}</div>
+            {{else}}
+            {{/if}}
+                {{>_msg}}
+                {{{body}}}
+                </div>
+        {{else}}
         {{>_navbar}}
         <div class="pagina grid-container">
             {{#if error}}
@@ -35,5 +47,6 @@
             {{{body}}}
         </div>
         {{>_footer}}
+        {{/if}}
     </body>
 </html>

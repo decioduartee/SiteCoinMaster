@@ -10,14 +10,14 @@ module.exports = {
     },
 
     async getGiros(req, res) {
-        DadosBot.find().sort({dataDaURL: -1}).lean().then((dados) => {
+        DadosBot.find().sort({dataDeRegistro: -1}).lean().then((dados) => {
             function list() {
                 let arrayDados = [],
                 novaLista = dados.reduce(function(acumulador, listDados) {
-                    if(!acumulador[listDados.dataDaURL]) {
-                      acumulador[listDados.dataDaURL] = []
+                    if(!acumulador[listDados.dataDeRegistro]) {
+                      acumulador[listDados.dataDeRegistro] = []
                     }
-                    acumulador[listDados.dataDaURL].push(listDados)
+                    acumulador[listDados.dataDeRegistro].push(listDados)
                     return acumulador
                 }, {});
                 for (let data in novaLista) {

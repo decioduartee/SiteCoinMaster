@@ -1,6 +1,6 @@
 const express = require('express'),
       router = express.Router(),
-      {admin}    = require("../helpers/admin"),
+      {admin} = require("../helpers/admin"),
       adminController = require("../controllers/adminController")
   
 router.get('/', adminController.getLogin)
@@ -14,6 +14,8 @@ router.get("/sair", admin, adminController.getSair)
 router.get("/registro", admin, adminController.getRegistro)
 
 router.post("/registro", admin, adminController.postRegistro)
+
+router.get("/usuarios", admin, adminController.getUsuarios)
 
 
 

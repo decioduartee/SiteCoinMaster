@@ -5,9 +5,11 @@
     position: fixed;
     width: 100%;
     left: 0;
+    top: 66px;
     height: 3rem;
     padding: 1rem;
     border-radius: 3px;
+    z-index: 9999;
 }
 
 .error_msg {

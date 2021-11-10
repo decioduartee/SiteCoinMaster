@@ -39,22 +39,18 @@ btnCloseMenuUsuario.addEventListener('click', () => {
 })
 
 painel.addEventListener('click', (e) => {
-    e.preventDefault()
     tituloPainel.innerHTML = nomePainel.innerHTML
 })
 
 imobiliaria.addEventListener('click', (e) => {
-    e.preventDefault()
     tituloPainel.innerHTML = nomeImobiliaria.innerHTML
 })
 
 usuarios.addEventListener('click', (e) => {
-    e.preventDefault()
     tituloPainel.innerHTML = nomeUsuarios.innerHTML
 })
 
 bot.addEventListener('click', (e) => {
-    e.preventDefault()
     tituloPainel.innerHTML = nomeBot.innerHTML
 })
 
