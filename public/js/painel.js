@@ -11,10 +11,10 @@ painel = document.querySelector('#painel'),
 nomePainel = document.querySelector('.nome-painel'),
 imobiliaria = document.querySelector('#imobiliaria'),
 nomeImobiliaria = document.querySelector('.nome-imobiliaria'),
-chaves = document.querySelector('#chaves'),
-nomeChaves = document.querySelector('.nome-chaves')
-cadastro = document.querySelector('#cadastro'),
-nomeCadastro = document.querySelector('.nome-cadastro')
+usuarios = document.querySelector('#usuarios'),
+nomeUsuarios = document.querySelector('.nome-usuarios')
+bot = document.querySelector('#bot'),
+nomeBot = document.querySelector('.nome-bot')
 
 let painelOpen = false, menuOpen = false
 
@@ -48,14 +48,14 @@ imobiliaria.addEventListener('click', (e) => {
     tituloPainel.innerHTML = nomeImobiliaria.innerHTML
 })
 
-chaves.addEventListener('click', (e) => {
+usuarios.addEventListener('click', (e) => {
     e.preventDefault()
-    tituloPainel.innerHTML = nomeChaves.innerHTML
+    tituloPainel.innerHTML = nomeUsuarios.innerHTML
 })
 
-cadastro.addEventListener('click', (e) => {
+bot.addEventListener('click', (e) => {
     e.preventDefault()
-    tituloPainel.innerHTML = nomeCadastro.innerHTML
+    tituloPainel.innerHTML = nomeBot.innerHTML
 })
 
 function eventoMenuPainel() {

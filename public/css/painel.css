@@ -2,7 +2,7 @@
 .section-painel {
     position: absolute;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     left: 0;
     right: 0;
     top: 0;
@@ -13,10 +13,10 @@
 .header {
     position: absolute;
     height: 60px;
-    background: transparent;
     padding: 0 30px;
-    z-index: 99;
-    /* box-shadow: 0 2px 5px rgb(190, 190, 190); */
+    z-index: 9999;
+    width: 100%;
+    background: var(--pretoescuro);
 }
 
 .nav {
@@ -24,7 +24,6 @@
     width: 100%;
     height: 100%;
     background: transparent;
-    border-bottom: 0.5px solid #ffffff57;
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
@@ -120,16 +119,6 @@ h1.titulo-painel {
     transform: translateY(6px);
 }
 
-.btn-painel__burger.open::before,
-.btn-painel__burger.open::after {
-    background: #555
-}
-
-.iconSinalizadorPainel.open,
-.titulo-painel.open {
-    color: #555
-}
-
 .client-nome {
     margin: 0;
     font-size: 15px;
@@ -153,23 +142,11 @@ h1.titulo-painel {
     object-fit: cover;
 }
 
-.float-background {
-    position: relative;
-    width: 100vw;
-    height: 45vh;
-}
-
-.float-background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .menu-painel {
-    position: fixed;
+    position: absolute;
     width: 19rem;
     height: 100vh;
-    background: white;
+    background: var(--pretoescuro);
     box-shadow: 2px 0 5px rgba(51, 51, 51, 0.356);
     left: -500px;
     top: 0;
@@ -194,11 +171,11 @@ h1.titulo-painel {
     width: 100%;
     height: 100%;
     align-items: center;
-    justify-content: end;
+    justify-content: left;
     display: inline-flex;
     font-size: 15px;
     font-weight: 500;
-    color: #555;
+    color: var(--branco);
     padding: 10px;
 }
 
@@ -207,17 +184,17 @@ h1.titulo-painel {
     width: 100%;
     height: 100%;
     align-items: center;
-    justify-content: end;
+    justify-content: left;
     display: inline-flex;
     font-size: 15px;
     font-weight: 500;
-    color: #555;
+    color: var(--branco);
     padding: 10px;
     transition: all .2s ease-in-out;
 }
 
 .icon-menu {
-    color: #333;
+    color: var(--branco);
     transition: all .2s ease-in-out;
 }
 
@@ -254,7 +231,7 @@ a.links-menu {
     position: fixed;
     width: auto;
     height: 190px;
-    background: white;
+    background: var(--pretoescuro);
     right: -510px;
     top: 70px;
     z-index: 999;
@@ -284,7 +261,7 @@ a.links-menu {
     margin: 0;
     font-size: 18px;
     font-weight: 500;
-    color: #555;
+    color: var(--branco);
 }
 
 .close-menu-usuario {
@@ -305,6 +282,7 @@ a.links-menu {
 
 .close-menu-usuario .icon-close {
     font-size: 17px;
+    color: var(--branco);
 }
 
 .content-usuario-info {
@@ -338,7 +316,7 @@ a.links-menu {
     margin: 0;
     font-size: 17px;
     font-weight: 500;
-    color: #555;
+    color: var(--branco);
     text-transform: capitalize;
     transition: all .2s ease-in-out;
     overflow: hidden;
@@ -362,7 +340,7 @@ a.links-menu {
     margin: 0;
     font-size: 13px;
     font-weight: 500;
-    color: #555;
+    color: var(--branco);
     padding-left: 4px;
     transition: all .2s ease-in-out;
     text-transform: lowercase;
@@ -384,7 +362,7 @@ a.links-menu {
     font-size: 15px;
     border: none;
     outline: none;
-    background: #E1E9FF;
+    background: var(--pretoclaro);
     border-radius: 5px;
     margin-top: 5px;
     cursor: pointer;
@@ -478,11 +456,6 @@ a.links-menu {
 @media only screen and (max-width: 430px) {
     .menu-painel {
         width: 100vw;
-    }
-
-    .btn-painel.btn-client-right.open > .btn-painel__burger::before, 
-    .btn-painel.btn-client-right.open > .btn-painel__burger::after {
-        background: #555 !important;
     }
 }
 

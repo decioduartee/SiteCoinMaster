@@ -94,6 +94,7 @@ td:first-child {
 
 .site-content .content-area {
     width: 100%;
+    min-height: 100vh;
 }
 
 .site-main {
