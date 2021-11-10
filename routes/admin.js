@@ -2,18 +2,18 @@ const express = require('express'),
       router = express.Router(),
       {admin}    = require("../helpers/admin"),
       adminController = require("../controllers/adminController")
-      
-router.get('/painel', adminController.getPainel)
-
+  
 router.get('/', adminController.getLogin)
 
 router.post("/", adminController.postLogin)
 
-router.get("/sair", adminController.getSair)
+router.get('/painel', admin, adminController.getPainel)
 
-router.get("/registro", adminController.getRegistro)
+router.get("/sair", admin, adminController.getSair)
 
-router.post("/registro", adminController.postRegistro)
+router.get("/registro", admin, adminController.getRegistro)
+
+router.post("/registro", admin, adminController.postRegistro)
 
 
 

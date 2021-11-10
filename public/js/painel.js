@@ -1,20 +1,20 @@
 const btnPainel1 = document.querySelector('#btn-painel1'),
-btnPainel2 = document.querySelector('#btn-painel2'),
-menuPainel = document.querySelector('#menu-painel'),
-burger = document.querySelector('.btn-painel__burger'),
-iconSinalizadorPainel = document.querySelector('.iconSinalizadorPainel'),
-tituloPainel = document.querySelector('.titulo-painel'),
-menuUsuarioRight = document.querySelector('.menu-usuario-right'),
-btnclientRight = document.querySelector('.client__content'),
-btnCloseMenuUsuario = document.querySelector('.close-menu-usuario'),
-painel = document.querySelector('#painel'),
-nomePainel = document.querySelector('.nome-painel'),
-imobiliaria = document.querySelector('#imobiliaria'),
-nomeImobiliaria = document.querySelector('.nome-imobiliaria'),
-usuarios = document.querySelector('#usuarios'),
-nomeUsuarios = document.querySelector('.nome-usuarios')
-bot = document.querySelector('#bot'),
-nomeBot = document.querySelector('.nome-bot')
+      btnPainel2 = document.querySelector('#btn-painel2'),
+      menuPainel = document.querySelector('#menu-painel'),
+      burger = document.querySelector('.btn-painel__burger'),
+      iconSinalizadorPainel = document.querySelector('.iconSinalizadorPainel'),
+      tituloPainel = document.querySelector('.titulo-painel'),
+      menuUsuarioRight = document.querySelector('.menu-usuario-right'),
+      btnclientRight = document.querySelector('.client__content'),
+      btnCloseMenuUsuario = document.querySelector('.close-menu-usuario'),
+      painel = document.querySelector('#painel'),
+      nomePainel = document.querySelector('.nome-painel'),
+      imobiliaria = document.querySelector('#imobiliaria'),
+      nomeImobiliaria = document.querySelector('.nome-imobiliaria'),
+      usuarios = document.querySelector('#usuarios'),
+      nomeUsuarios = document.querySelector('.nome-usuarios'),
+      bot = document.querySelector('#bot'),
+      nomeBot = document.querySelector('.nome-bot');
 
 let painelOpen = false, menuOpen = false
 
@@ -27,15 +27,15 @@ btnPainel2.addEventListener('click', () => {
 })
 
 btnclientRight.addEventListener('click', () => {
-        menuUsuarioRight.classList.add('open')
-        menuOpen = true
-        painelOpen = false
-        closes()
+    menuUsuarioRight.classList.add('open')
+    menuOpen = true
+    painelOpen = false
+    closes()
 })
 
 btnCloseMenuUsuario.addEventListener('click', () => {
-        menuUsuarioRight.classList.remove('open')
-        menuOpen = false
+    menuUsuarioRight.classList.remove('open')
+    menuOpen = false
 })
 
 painel.addEventListener('click', (e) => {
