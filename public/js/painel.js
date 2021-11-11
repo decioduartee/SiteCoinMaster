@@ -6,15 +6,7 @@ const btnPainel1 = document.querySelector('#btn-painel1'),
       tituloPainel = document.querySelector('.titulo-painel'),
       menuUsuarioRight = document.querySelector('.menu-usuario-right'),
       btnclientRight = document.querySelector('.client__content'),
-      btnCloseMenuUsuario = document.querySelector('.close-menu-usuario'),
-      painel = document.querySelector('#painel'),
-      nomePainel = document.querySelector('.nome-painel'),
-      imobiliaria = document.querySelector('#imobiliaria'),
-      nomeImobiliaria = document.querySelector('.nome-imobiliaria'),
-      usuarios = document.querySelector('#usuarios'),
-      nomeUsuarios = document.querySelector('.nome-usuarios'),
-      bot = document.querySelector('#bot'),
-      nomeBot = document.querySelector('.nome-bot');
+      btnCloseMenuUsuario = document.querySelector('.close-menu-usuario');
 
 let painelOpen = false, menuOpen = false
 
@@ -36,22 +28,6 @@ btnclientRight.addEventListener('click', () => {
 btnCloseMenuUsuario.addEventListener('click', () => {
     menuUsuarioRight.classList.remove('open')
     menuOpen = false
-})
-
-painel.addEventListener('click', (e) => {
-    tituloPainel.innerHTML = nomePainel.innerHTML
-})
-
-imobiliaria.addEventListener('click', (e) => {
-    tituloPainel.innerHTML = nomeImobiliaria.innerHTML
-})
-
-usuarios.addEventListener('click', (e) => {
-    tituloPainel.innerHTML = nomeUsuarios.innerHTML
-})
-
-bot.addEventListener('click', (e) => {
-    tituloPainel.innerHTML = nomeBot.innerHTML
 })
 
 function eventoMenuPainel() {

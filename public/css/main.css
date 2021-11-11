@@ -80,7 +80,7 @@ td:first-child {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
-    min-height: calc(100vh - 66px);
+    min-height: calc(100vh - 70px);
 }
 
 .site-content {
