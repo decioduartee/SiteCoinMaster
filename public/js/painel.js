@@ -8,7 +8,7 @@ const btnPainel1 = document.querySelector('#btn-painel1'),
       btnclientRight = document.querySelector('.client__content'),
       btnCloseMenuUsuario = document.querySelector('.close-menu-usuario');
 
-let painelOpen = false, menuOpen = false
+let painelOpen = false, menuOpen = false;
 
 btnPainel1.addEventListener('click', () => {
     eventoMenuPainel()

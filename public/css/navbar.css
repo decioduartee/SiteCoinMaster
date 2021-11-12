@@ -4,8 +4,6 @@
     display: flex;
     justify-content: space-between;
     position: fixed;
-    /* -webkit-box-shadow: inset 0 -1px 0 #252d2f;
-    box-shadow: inset 0 -1px 0 #252d2f; */
     background: var(--branco);
     z-index: 9999;
     top: 0;
@@ -33,7 +31,6 @@
 }
 
 .header-navbar .header__home .header__logo {
-    cursor: pointer;
     display: flex;
     align-items: center;
     width: 150px;
@@ -44,6 +41,11 @@
     margin: 0;
     font-weight: 700;
     letter-spacing: -1px;
+}
+
+.header-navbar .header__home .header__logo span {
+    color: var(--vermelho);
+    font-size: 1.5rem;
 }
 
 .header-navbar nav {
@@ -95,4 +97,15 @@ a {
     -ms-user-select: none;
     user-select: none;
     letter-spacing: -0.5px;
+}
+
+.btn-navbar__menu {
+    position: relative;
+    display: none;
+}
+
+.btn-navbar__menu label i {
+    font-size: 2.3rem;
+    color: var(--pretopadrao);
+    cursor: pointer;
 }

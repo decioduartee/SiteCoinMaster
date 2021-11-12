@@ -116,7 +116,7 @@ form {
 }
 
 .form__input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px var(--branco) inset;
+    --webkit-box-shadow: 0 0 0 30px var(--branco) inset;
 }
 
 .input .form__label {

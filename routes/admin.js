@@ -17,6 +17,8 @@ router.post("/registro", admin, adminController.postRegistro)
 
 router.get("/usuarios", admin, adminController.getUsuarios)
 
+router.get("/superusuarios", admin, adminController.getSuperUsuarios)
+
 
 
 

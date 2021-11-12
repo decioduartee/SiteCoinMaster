@@ -1,0 +1,186 @@
+@media only screen and (max-width: 1024px) {
+    .sobre_footer h3, .redes_sociais h3, .notica_usuario h3 {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    footer {
+        height: 100% !important;
+    }
+
+    .grid_contents {
+        flex-direction: column-reverse;
+        gap: 0 !important;
+    }
+
+    .enviar_email_notica {
+        top: 1rem !important
+    }
+
+    .notifica_usuario__area {
+        margin-top: 2rem !important;
+        position: relative !important;
+    }
+
+    .sobre_footer, .redes_sociais, .notica_usuario {
+        padding: 1rem 2rem 1rem 2rem !important;
+    }
+
+    .sobre_footer, .redes_sociais, .notica_usuario {
+        padding: 0.5rem !important
+    }
+
+    .notifica_usuario__area {
+        margin-top: 2rem !important
+    }
+
+    .enviar_email_notica {
+        top: 1rem !important
+    }
+
+    .btn-navbar__menu {
+        display: block !important;
+    }
+
+    .navbar__menu {
+        width: 100%;
+        height: calc(100vh - 65px) !important;
+        position: fixed;
+        left: 100rem;
+        top: 55%;
+        transform: translate(-50%, -50%);
+        bottom: 0;
+        flex-direction: column;
+        background: #141414f5;
+        justify-content: center;
+        overflow: hidden;
+        transition: all .5s;
+        gap: 20px;
+    }
+
+    .header-navbar nav ul li a,
+    .header-navbar nav ul li .btn__links a {
+        color: var(--branco) !important;     
+    }
+
+    .header-navbar nav ul li a {
+        font-size: 1.5rem;
+        font-weight: 400 !important;
+    }
+    
+    .header-navbar nav ul li .btn__links a {
+        background: none;
+    }
+
+    .sobre_footer small {
+        letter-spacing: -.5px;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .pagina-giros-content:not(:first-child) {
+        padding: 0rem 2rem 0rem 2rem;
+    }
+
+    .pagina-giros-content p {
+        font-size: 15px;
+    }
+
+    .img-usuario-painel {
+        display: none !important;
+    }
+
+    .client-nome {
+        overflow: scroll;
+    }
+
+    .client-nome::-webkit-scrollbar { 
+      display: none;
+    }
+
+    .btn-client-right {
+        display: flex !important;
+    }
+
+    .btn-painel {
+        display: none;
+    }
+
+    .header {
+        padding: 0 15px;
+    }
+
+    .menu-usuario-right.open {
+        right: 15px;
+    }
+
+    h1.titulo-painel {
+        font-size: 18px;
+    }
+
+    .titulo-dentro-do-painel h1 {
+        font-size: 18px;
+    }
+
+    .pagina-giros-site .titulo-giros-site {
+        font-size: 30px !important;
+    }
+
+    .pagina-giros-content:not(:first-child) {
+        padding: 0rem 2rem 0rem 2rem;
+    }
+
+    .pagina-giros-content p {
+        font-size: 15px;
+    }
+
+    footer {
+        height: 100% !important;
+    }
+
+    .grid_contents {
+        flex-direction: column-reverse;
+        gap: 0 !important;
+    }
+
+    .enviar_email_notica {
+        top: 1rem;
+    }
+
+    .notifica_usuario__area {
+        margin-top: 2rem;
+        position: relative;
+    }
+
+    .sobre_footer, .redes_sociais, .notica_usuario {
+        padding: 1rem 2rem 1rem 2rem !important;
+    }
+}
+
+
+@media only screen and (max-width: 430px) {
+    .pagina-giros-content:not(:first-child) {
+        padding: 0.4rem;
+    }
+
+    .menu-painel {
+        width: 100vw;
+    }
+
+    .tabela__giros__links tbody tr td {
+        width: auto;
+    }
+
+    .pagina-giros-site .titulo-giros-site {
+        font-size: 20px !important;
+    }
+
+    .sobre_footer small,
+    .pagina-giros-content p {
+        letter-spacing: -1px;
+        padding: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 320px) {}

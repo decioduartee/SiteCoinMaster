@@ -1,8 +1,8 @@
 require('../models/ListaDeDadosBot')
-require('../models/EmailUsurios')
+require('../models/EmailUsuario')
 const mongoose  = require("mongoose"),
       DadosBot   = mongoose.model('botdados'),
-      EmailUsurios = mongoose.model('emailUsuarios')
+      EmailUsuarios = mongoose.model('emailusuarios')
 
 module.exports = {
     async getHome(req, res) {
@@ -36,12 +36,12 @@ module.exports = {
     },
 
     async postNotifica(req, res) {
-        EmailUsurios.findOne({email: req.body.notificaEmail}).then((email) => {
+        EmailUsuarios.findOne({email: req.body.notificaEmail}).then((email) => {
             if(email) {
                 req.flash("error_msg", "Email já registrado! tente outro")
                 res.redirect("/")
             } else {
-                const novoEmail = new EmailUsurios({
+                const novoEmail = new EmailUsuarios({
                     email: req.body.notificaEmail
                 })
                 novoEmail.save().then(() => {

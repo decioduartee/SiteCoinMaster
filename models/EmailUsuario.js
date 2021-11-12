@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'),
       Schema = mongoose.Schema
 
-const emailUsuario = new Schema({
+const EmailUsuario = new Schema({
     email: {
         type: String,
         require: true
@@ -12,4 +12,4 @@ const emailUsuario = new Schema({
     }
 })
 
-mongoose.model("emailUsuarios", emailUsuario)
+mongoose.model("emailusuarios", EmailUsuario)

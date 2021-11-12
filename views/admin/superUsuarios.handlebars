@@ -9,19 +9,23 @@
         <thead>
             <tr class="tabelaDados">
                 <th class="tagName">#</th>
-                <th class="tagName">ID</th>
+                <th class="tagName">Nome</th>
                 <th class="tagName">Email</th>
+                <th class="tagName">Cargo</th>
                 <th class="tagName">Data</th>
+                <th class="tagName">ID</th>
                 <th class="tagName">Ações</th>
             </tr>
         </thead>
         <tbody id="contagem-usuarios" class="tabela_overflow">
-            {{#each email}}
+            {{#each dados}}
                 <tr class="tabelaDados">
                     <td class="tagDados"></td>
-                    <td class="tagDados">{{_id}}</td>
+                    <td class="tagDados">{{nome}}</td>
                     <td class="tagDados">{{email}}</td>
+                    <td class="tagDados">{{cargo}}</td>
                     <td class="tagDados">{{#formatDate data}}{{/formatDate}}</td>
+                    <td class="tagDados">{{_id}}</td>
                     <td class="tagDados action">
                         <a class="btn_action" href="" target="_blank">
                             <i class='bx bxs-edit-location'></i>

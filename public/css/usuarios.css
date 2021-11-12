@@ -1,0 +1,121 @@
+.conatiner_pesquisa {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.pesquisa-usuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pesquisa-usuario input {
+    outline: none;
+    border: 1px solid var(--pretopadrao);
+    font-size: 1.1rem;
+    height: 2rem;
+    width: 15rem;
+    border-radius: 8px 0 0 8px;
+    padding: .3rem .3rem .3rem 1rem;
+}
+
+.pesquisa-usuario button {
+    height: 2rem;
+    width: 2.3rem;
+    font-size: 1rem;
+    color: var(--branco);
+    border-radius: 0 8px 8px 0px;
+    background: var(--pretopadrao);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.tabela__usuarios {
+    border: 1px solid #0000003b;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    overflow: auto;
+    display: grid;
+}
+
+.tabela__usuarios::-webkit-scrollbar {
+    height: 5px;
+}
+
+.tabela__usuarios tbody {
+    display: grid;
+    gap: 10px;
+}
+
+tr.tabelaDados {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    margin-bottom: 10px;
+}
+
+th.tagName:nth-child(1),
+td.tagDados:nth-child(1) {
+    width: 6rem;
+}
+
+.tabela__usuarios tbody tr td a {
+    border: 1px solid #d8d8d8;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: #eee;
+}
+
+th.tagName {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+td.tagDados {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+td.tagDados::-webkit-scrollbar {
+    display: none;
+}
+
+td.tagDados.action {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.btn_action i {
+    font-size: 1rem;
+    color: var(--pretopadrao);
+}
+
+/* 
+th.tagName:nth-child(1) {
+    width: auto;
+    display: flex;
+}
+
+td.tagDados:nth-child(1) {
+    width: 5rem;
+    display: flex;
+}
+
+th.tagName:nth-child(4),
+td.tagDados:nth-child(4) {
+    width: 4.5rem
+}
+*/

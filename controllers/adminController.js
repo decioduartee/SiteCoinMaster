@@ -1,8 +1,10 @@
 require('../models/SuperUsuario')
+require('../models/EmailUsuario')
 const mongoose  = require("mongoose"),
-      SuperUsuarios   = mongoose.model('superusuarios'),
-      bcrypt    = require('bcryptjs'),
-      passport   = require('passport');
+      SuperUsuarios = mongoose.model('superusuarios'),
+      EmailUsuarios = mongoose.model('emailusuarios')
+      bcrypt = require('bcryptjs'),
+      passport = require('passport');
 
 module.exports = {
     async getLogin(req, res) {
@@ -86,6 +88,14 @@ module.exports = {
     },
 
     async getUsuarios(req, res) {
-        res.render("admin/usuarios")
+        EmailUsuarios.find().sort({data: -1}).lean().then((email) => {
+            res.render("admin/usuarios", {email: email})
+        })
+    },
+
+    async getSuperUsuarios(req, res) {
+        SuperUsuarios.find().sort({cargo: -1}).lean().then((dados) => {
+            res.render("admin/superUsuarios", {dados: dados})
+        })
     }
 }
