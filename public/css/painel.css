@@ -146,6 +146,7 @@ h1.titulo-painel {
     position: fixed;
     width: 19rem;
     height: 100%;
+    min-height: 100vh;
     background: #22272ef2;
     box-shadow: 2px 0 5px rgba(51, 51, 51, 0.356);
     left: -500px;
