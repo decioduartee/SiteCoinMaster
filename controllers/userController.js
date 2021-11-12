@@ -45,7 +45,7 @@ module.exports = {
                     email: req.body.notificaEmail
                 })
                 novoEmail.save().then(() => {
-                    req.flash("success_msg", "Email registrada com sucesso!")
+                    req.flash("success_msg", "Sucesso! Agora você ira receber novidades em primeira mão.")
                     res.redirect("/")
                 }).catch((err) => {
                     req.flash("error_msg", "Houve um erro interno")

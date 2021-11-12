@@ -61,10 +61,8 @@ async function ligarBot() {
           validade = dataNumber + 3,
           dataDeHoje = new Date(),
           diaDeHoje = dataDeHoje.getDate();
-          //console.log(validade)
       if(validade == diaDeHoje) {
         await DadosBot.deleteOne({dataDeRegistro: ListaDeDados}).then(() => {
-          //console.log(`dados apagados`)
         }).catch((erro) => {
           console.log(erro)
         });
@@ -93,6 +91,7 @@ async function ligarBot() {
       }
     })
   })
+
   debugger;
   await browser.close();
 }
@@ -102,7 +101,7 @@ setInterval(function () {
   var agora = new Date();
   var a = `${agora}`;
   var resultado = a.split(" ");
-  if (resultado[4] == '08:00:00') {
+  if (resultado[4] == '14:00:00') {
     ligarBot();
     console.log(`🤖 Iniciado com sucesso as: [ ${resultado[4]} ]`);
   }
