@@ -48,7 +48,8 @@
     }
 
     .notifica_usuario__area {
-        margin-top: 2rem !important
+        margin-top: 2rem !important;
+        margin-bottom: 1rem;
     }
 
     .enviar_email_notica {
@@ -210,6 +211,10 @@
 
     .pagina-giros-site .titulo-giros-site {
         font-size: 20px !important;
+    }
+
+    p.infocoin__descricao {
+        padding: 0 1.25rem 1.25rem 1.4rem !important;
     }
 
     .sobre_footer small,

@@ -95,3 +95,120 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.compartilhar__container {
+    width: 100%;
+    height: auto;
+    border-radius: .25rem;
+    background: #f6f6f6;
+    margin: 2rem 0;
+    padding: 1rem;
+}
+
+.compartilhar__titulo {
+    font-size: 1.1rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+.compartilhar__icons {
+    text-align: center;
+    position: relative;
+    margin-top: .5rem;
+}
+
+a.compartilhar__icon {
+    padding: 0 .3rem;
+}
+
+.infocoin__container {
+    display: grid;
+    align-items: center;
+    height: 100%;
+    row-gap: .75rem;
+    margin: 1.5rem 0;
+}
+
+.infocoin__titulo {
+    font-size: 1rem;
+    color: var(--pretopadrao);
+    font-weight: 500;
+    margin-top: .15rem;
+    transition: .2s;
+}
+
+.infocoin__header {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    padding: 1.25rem 1.25rem 1.25rem 1rem;
+    cursor: pointer;
+}
+
+p.infocoin__descricao {
+    padding: 0 1.25rem 1.25rem 3rem;
+    font-size: .9rem;
+    color: var(--pretoclaro);
+    letter-spacing: 0;
+}
+
+.compartilhar__icon svg {
+    max-width: 45px;
+}
+
+.infocoin__icon {
+    font-size: 1.5rem;
+    height: max-content;
+    color: var(--pretoescuro);
+    transition: .3s;
+}
+
+.infocoin__item {
+    box-shadow: 0 2px 6px hsla(0, 0%, 15%, 0.1);
+    border-radius: .25rem;
+    position: relative;
+    transition: all .25s ease;
+    background: #fdfcfc;
+} 
+
+.infocoin__item::after {
+    content: '';
+    background: var(--vermelho);
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: .25rem 0 0 .25rem;
+}
+
+.infocoin__item:nth-child(1) {
+    background: rgba(255, 86, 86, 0.200);
+}
+
+.infocoin__item:nth-child(2) {
+    background: rgba(255, 190, 69, 0.300);
+}
+
+.infocoin__item:nth-child(2)::after {
+    background: rgb(255, 166, 0, 0.400);
+}
+
+.infocoin__item:nth-child(3) {
+    background: rgb(197, 255, 205, 0.400)
+}
+
+.infocoin__item:nth-child(3)::after {
+    background: rgba(42, 194, 62, 0.400)
+}
+
+.infocoin__content {
+    overflow: hidden;
+    height: 0;
+    transition: all .25s ease;
+}
+
+.infocoin-open .infocoin__icon {
+    transform: rotate(45deg);
+}
