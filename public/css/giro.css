@@ -85,11 +85,6 @@
     transition: all .5s;
 }
 
-.tabela__giros__links tbody tr td a:hover {
-    background: var(--vermelho);
-    border: 1px solid #3333;
-}
-
 .tabela__giros__links tbody tr {
     display: flex;
     justify-content: space-between;
