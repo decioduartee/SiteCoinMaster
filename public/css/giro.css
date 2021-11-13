@@ -28,7 +28,7 @@
 
 .anuncios__block {
     min-height: 100px;
-    margin-top: 1rem;
+    margin-top: 1rem !important;
 }
 
 .anuncios__titulo {
