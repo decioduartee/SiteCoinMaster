@@ -1,10 +1,15 @@
 require('../models/ListaDeDadosBot')
 const puppeteer = require('puppeteer'),
       mongoose  = require("mongoose"),
-      DadosBot  = mongoose.model('botdados');
-      moment    = require('moment'),
-      dataLocal = moment(new Date()).format("DD/MM/YYYY");
+      DadosBot  = mongoose.model('botdados'),
+      dataLocal = new Date().toLocaleString(),
+      cronJob = require('cron').CronJob;
 
+// Vai rodar todos os dias as 9h e as 14h
+new cronJob('0 9,14 * * *', () => {
+  ligarBot()
+  console.log(`🤖 Bot iniciado com sucesso!`)
+}, null, true, 'America/Sao_Paulo');
 
 async function ligarBot() {
   const browser = await puppeteer.launch({
@@ -95,16 +100,5 @@ async function ligarBot() {
   debugger;
   await browser.close();
 }
-
-// ligando o bot as 9hrs da manha
-setInterval(function () {
-  var agora = new Date();
-  var a = `${agora}`;
-  var resultado = a.split(" ");
-  if (resultado[4] == '14:00:00') {
-    ligarBot();
-    console.log(`🤖 Iniciado com sucesso as: [ ${resultado[4]} ]`);
-  }
-}, 1000);
 
 module.exports = ligarBot;

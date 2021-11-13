@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
-      Schema = mongoose.Schema
+      Schema = mongoose.Schema,
+      dataLocal = new Date().toLocaleString();
 
 const SuperUsuario = new Schema({
     nome: {
@@ -19,8 +20,8 @@ const SuperUsuario = new Schema({
         require: true
     },
     data: {
-        type: Date,
-        default: Date.now()
+        type: String,
+        default: dataLocal
     }
 })
 
