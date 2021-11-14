@@ -9,7 +9,7 @@
     height: 3rem;
     padding: 1rem;
     border-radius: 3px;
-    z-index: 9999;
+    z-index: 99;
 }
 
 .error_msg {
