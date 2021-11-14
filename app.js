@@ -4,8 +4,8 @@ const express    =  require('express'),
       bodyParser =  require('body-parser'),
       app        =  express(),
       moment     =  require("moment"),
-      session    =  require("express-session"),
-      passport   = require('passport'),
+      session    =  require('cookie-session'),
+      passport   =  require('passport'),
       flash      =  require("connect-flash"),
       admin      =  require("./routes/admin"),
       moderador  =  require("./routes/moderador"),
@@ -22,7 +22,11 @@ ligarBot()
     app.use(session({
         secret: process.env.SESSION_SECRET || "chavesecreta",
         resave: true,
-        saveUninitialized: true
+        saveUninitialized: true,
+        maxAge: 1000 * 60 * 15,
+        cookie:{
+            secure: true
+        }
     }))
     app.use(passport.initialize())
     app.use(passport.session())
