@@ -13,16 +13,11 @@ new cronJob('0 * * * * *', () => {
 
 async function ligarBot() {
   const browser = await puppeteer.launch({
-    ignoreHTTPSErrors: true,
-    ignoreDefaultArgs: [
-      '--disable-extensions'
-    ],
+    headless: true,
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox'
     ],
-    headless: true,
-    timeout: 0
   });
 
   const page = await browser.newPage(); 
