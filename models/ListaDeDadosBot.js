@@ -13,11 +13,11 @@ const DadosBot = new Schema({
     dataDaURL: {
         type: String,
         require: true
-    }/* ,
+    },
     dataDeRegistro:{
         type: String,
         required: true
-    } */
+    }
 })
 
 mongoose.model("botdados", DadosBot)

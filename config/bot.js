@@ -89,7 +89,7 @@ async function ligarBot() {
           titulo: list[i].titulo,
           link: list[i].link,
           dataDaURL: list[i].dataDaURL,
-          /* dataDeRegistro: dataLocal */
+          dataDeRegistro: dataLocal
         })
         novosDados.save().then(() => {
           console.log(`🤖 dados Salvos`)
