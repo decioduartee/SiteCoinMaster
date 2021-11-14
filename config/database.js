@@ -1,5 +1,4 @@
 const mongoose   =  require('mongoose'); 
-// Mongoose
 function connectToDatebase() {
     mongoose.Promise = global.Promise
     mongoose.connect(process.env.MONGODB_URL, {
