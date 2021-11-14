@@ -1,0 +1,81 @@
+.container-area__inicio {
+    position: relative;
+    padding: 1rem 5rem;
+}
+
+.inicio__titulo  {
+    position: relative;
+    text-align: center;
+    margin: 2rem 0 4rem;
+}
+
+.inicio__titulo h3 {
+    font-size: 3rem;
+    letter-spacing: 1px;
+    line-height: 3.3rem;
+    color: var(--pretoclaro);
+}
+
+.inicio__titulo h3 span {
+    color: var(--vermelho)
+}
+
+.content__inicio {
+    display: flex;
+    position: relative;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.imagem-pig__inicio {
+    width: 130rem;
+    overflow: hidden;
+    display: flex;
+    align-items: end;
+}
+
+.imagem-pig__inicio img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: flex;
+}
+
+.inicio__text h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--pretoclaro);
+    letter-spacing: -1px;
+    margin-bottom: .25rem;
+}
+
+.inicio__text p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--pretoclaro);
+    text-align: justify;
+    margin-bottom: .5rem;
+}
+
+.inicio__text p small {
+    position: relative;
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+.inicio__text p small span {
+    color: var(--vermelho);
+}
+
+button.inicio-btn__giros {
+    width: 13rem;
+    height: 2.6rem;
+    background: var(--vermelho);
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--branco);
+    cursor: pointer;
+    letter-spacing: -.5px;
+}
