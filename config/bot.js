@@ -2,7 +2,8 @@ require('../models/ListaDeDadosBot')
 const puppeteer = require('puppeteer'),
       mongoose  = require("mongoose"),
       DadosBot  = mongoose.model('botdados'),
-      dataLocal = new Date().toLocaleString().substr(0, 10),
+      moment = require('moment')
+      dataLocal = moment(new Date()).format("DD/MM/YYYY"),
       cronJob = require('cron').CronJob;
 
 // Vai rodar todos os dias as 9h e as 14h
