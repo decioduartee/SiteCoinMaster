@@ -54,7 +54,8 @@ ligarBot()
         res.render("partials/_404")
     })
 // Conexao
+const HOST = process.env.HOST || '0.0.0.0'
 const PORT = process.env.PORT || 8080;
-app.listen(PORT,() => {
-    console.log(`🦾 Backend iniciado com sucesso na rota: ${process.env.SITE_URL}`);
+app.listen(PORT, HOST, () => {
+    console.log(`🦾 Backend iniciado com sucesso`);
 });
