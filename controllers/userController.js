@@ -2,7 +2,8 @@ require('../models/ListaDeDadosBot')
 require('../models/EmailUsuario')
 const mongoose  = require("mongoose"),
       DadosBot   = mongoose.model('botdados'),
-      EmailUsuarios = mongoose.model('emailusuarios')
+      EmailUsuarios = mongoose.model('emailusuarios'),
+      dataLocal = new Date().toLocaleString()
 
 module.exports = {
     async getHome(req, res) {
@@ -42,7 +43,8 @@ module.exports = {
                 res.redirect("/")
             } else {
                 const novoEmail = new EmailUsuarios({
-                    email: req.body.notificaEmail
+                    email: req.body.notificaEmail,
+                    data: dataLocal
                 })
                 novoEmail.save().then(() => {
                     req.flash("success_msg", "Sucesso! Agora você ira receber novidades em primeira mão.")

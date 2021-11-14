@@ -7,8 +7,8 @@ const EmailUsuario = new Schema({
         require: true
     },
     data: {
-        type: Date,
-        default: Date.now()
+        type: String,
+        require: true
     }
 })
 
