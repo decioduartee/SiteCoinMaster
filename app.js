@@ -20,7 +20,7 @@ ligarBot()
 // Configuraçẽs
     // Sessao
     app.use(session({
-        secret: process.env.SESSION_SECRET,
+        secret: process.env.SESSION_SECRET || "chavesecreta",
         resave: true,
         saveUninitialized: true
     }))
@@ -54,8 +54,7 @@ ligarBot()
         res.render("partials/_404")
     })
 // Conexao
-const HOST = process.env.HOST || '0.0.0.0'
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, HOST, () => {
+app.listen(PORT, () => {
     console.log(`🦾 Backend iniciado com sucesso`);
 });
