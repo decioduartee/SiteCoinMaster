@@ -20,7 +20,7 @@ ligarBot()
 // Configuraçẽs
     // Sessao
     app.use(session({
-        secret: "coinmaster",
+        secret: process.env.SESSION_SECRET,
         resave: true,
         saveUninitialized: true
     }))
