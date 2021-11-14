@@ -22,7 +22,7 @@ ligarBot()
     app.use(session({
         secret: process.env.SESSION_SECRET || "chavesecreta",
         resave: true,
-        saveUninitialized: true
+        saveUninitialized: true,
     }))
     app.use(passport.initialize())
     app.use(passport.session())
