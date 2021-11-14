@@ -220,7 +220,7 @@
     .sobre_footer small,
     .pagina-giros-content p {
         letter-spacing: -1px;
-        padding: 0;
+        padding: 0 1.2rem;
     }
 
     .pagina-giros-site .titulo-giros-site {
