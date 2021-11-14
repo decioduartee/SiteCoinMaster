@@ -6,7 +6,12 @@ const puppeteer = require('puppeteer'),
       cronJob = require('cron').CronJob;
 
 // Vai rodar todos os dias as 9h e as 14h
-new cronJob('0 9,14 * * *', () => {
+/* new cronJob('0 9,14 * * *', () => {
+  ligarBot()
+  console.log(`🤖 Bot iniciado com sucesso!`)
+}, null, true, 'America/Sao_Paulo'); */
+
+new cronJob('0 * * * * *', () => {
   ligarBot()
   console.log(`🤖 Bot iniciado com sucesso!`)
 }, null, true, 'America/Sao_Paulo');
