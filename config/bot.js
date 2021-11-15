@@ -6,24 +6,17 @@ const puppeteer = require('puppeteer'),
       dataLocal = moment(new Date()).format("DD/MM/YYYY"),
       cronJob = require('cron').CronJob;
 // Vai rodar todos os dias as 9h e as 14h
-new cronJob('6 9,18 * * *', async () => {
+new cronJob('12 9,18 * * *', async () => {
   await ligarBot()
 }, null, true, 'America/Sao_Paulo');
 
 async function ligarBot() {
   const browser = await puppeteer.launch({
     headless: true,
-    ignoreHTTPSErrors: true,
-    executablePath: '/usr/bin/chromium-browser',
     args: [
       '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-gpu'
-    ],
-    ignoreDefaultArgs: [
-      '--disable-extensions'
-    ],
-    timeout: 0
+      '--disable-setuid-sandbox'
+    ]
   });
 
   const page = await browser.newPage(); 
