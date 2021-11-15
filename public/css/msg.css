@@ -10,6 +10,7 @@
     padding: 1rem;
     border-radius: 3px;
     z-index: 99;
+    color: white;
 }
 
 .error_msg {

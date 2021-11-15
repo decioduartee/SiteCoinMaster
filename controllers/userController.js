@@ -54,7 +54,7 @@ module.exports = {
                     })
                     novoEmail.save().then(() => {
                         InfoEnviarEmail(req.body.notificaEmail)
-                        req.flash("success_msg", "Sucesso! Agora você ira receber novidades em primeira mão.")
+                        req.flash("success_msg", "Sucesso! Check seu email, ou area de spam.")
                         res.redirect("/")
                     }).catch((err) => {
                         req.flash("error_msg", "Houve um erro interno")
