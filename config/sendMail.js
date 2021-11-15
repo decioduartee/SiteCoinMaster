@@ -58,7 +58,6 @@ const html = `
             <div id="titulo__assunto">
                 <h3>Bem-vindo(a) ao Clique<span>Coin</span></h3>
                 <p>Agora você vai receber todas as Novidades e Giros<br> sempre em primeira mão!</p>
-                <a id="btnVoltarCliquecoin"href="www.cliquecoin.com.br">Volte para o site</a>
             </div>
         </body>
     </html>
