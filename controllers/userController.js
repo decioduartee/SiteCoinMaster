@@ -3,9 +3,9 @@ require('../models/EmailUsuario')
 const mongoose  = require("mongoose"),
       DadosBot   = mongoose.model('botdados'),
       EmailUsuarios = mongoose.model('emailusuarios'),
-      moment = require('moment')
+      moment = require('moment'),
       dataLocal = moment(new Date()).format("DD/MM/YYYY"),
-      InfoEnviarEmail = require('../config/sendMail')
+      InfoEnviarEmail = require('../config/sendMail');
 
 module.exports = {
     async getHome(req, res) {
