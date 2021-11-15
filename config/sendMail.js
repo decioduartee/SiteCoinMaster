@@ -164,6 +164,7 @@ const html = `
 ` */
 
 const transporter = mailer.createTransport({
+    service: process.env.EMAIL_NOMEGMAIL,
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
     secure: false,
@@ -179,7 +180,7 @@ const transporter = mailer.createTransport({
 
 async function InfoEnviarEmail(email) {
     await transporter.sendMail({
-        form: `CliqueCoin <${process.env.EMAIL_GMAIL}>`,
+        form: process.env.EMAIL_GMAIL,
         to: email,
         subject: "Obrigado por fazer parte de CliqueCoin!",
         html: html
