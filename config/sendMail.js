@@ -150,17 +150,17 @@ const html = `
 
 const transporter = mailer.createTransport({
     service: process.env.EMAIL_NOMEGMAIL,
-    //host: process.env.EMAIL_HOST,
-    //port: process.env.EMAIL_PORT,
-    //secure: false,
-    //requireTLS: true,
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    secure: false,
+    requireTLS: true,
     auth: {
         user: process.env.EMAIL_GMAIL,
         pass: process.env.EMAIL_SENHA
     },
-    /* tls: {
+    tls: {
         rejectUnauthorized: false
-    }, */
+    },
 });
 
 async function InfoEnviarEmail(email) {
