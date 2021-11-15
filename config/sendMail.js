@@ -8,17 +8,6 @@ const html = `
             'cliquecoin'
         </title>
         <style>
-            #imagemCliquecoin {
-                width: 100%;
-                text-align: center;
-            }
-
-            #imagemCliquecoin img {
-                width: 7rem;
-                height: 7rem;
-                object-fit: cover;
-            }
-
             #titulo__assunto {
                 width: 100%;
                 text-align: center;
@@ -66,9 +55,6 @@ const html = `
         </style>
         </head>
         <body>
-            <div id="imagemCliquecoin">
-                <img src='https://i.pinimg.com/originals/84/ec/6f/84ec6fd2b40f63cf0b7f7ab45e847ae9.png'></img>
-            </div>
             <div id="titulo__assunto">
                 <h3>Bem-vindo(a) ao Clique<span>Coin</span></h3>
                 <p>Agora você vai receber todas as Novidades e Giros<br> sempre em primeira mão!</p>
