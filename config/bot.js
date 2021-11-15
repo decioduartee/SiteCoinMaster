@@ -5,11 +5,9 @@ const puppeteer = require('puppeteer'),
       moment = require('moment')
       dataLocal = moment(new Date()).format("DD/MM/YYYY"),
       cronJob = require('cron').CronJob;
-
 // Vai rodar todos os dias as 9h e as 14h
 new cronJob('0 9,14 * * *', async () => {
   await ligarBot()
-  console.log(`🤖 Bot iniciado com sucesso!`)
 }, null, true, 'America/Sao_Paulo');
 
 async function ligarBot() {
@@ -59,7 +57,7 @@ async function ligarBot() {
     return arrayDados;
   });
 
-  await DadosBot.find({}, {dataDeRegistro: 1, _id: 0}).then((datas) => {
+  await DadosBot.find({}, {dataDeRegistro: 1, _id: 0}).then((datas) => { 
     let dados = [];
     for(let elemento of datas){
       dados.push(elemento.dataDeRegistro);
@@ -72,6 +70,7 @@ async function ligarBot() {
           diaDeHoje = dataDeHoje.getDate();
       if(validade == diaDeHoje) {
         await DadosBot.deleteOne({dataDeRegistro: ListaDeDados}).then(() => {
+          //console.log('dados apagados) 
         }).catch((erro) => {
           console.log(erro)
         });

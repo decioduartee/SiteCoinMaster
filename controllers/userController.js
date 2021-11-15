@@ -4,7 +4,8 @@ const mongoose  = require("mongoose"),
       DadosBot   = mongoose.model('botdados'),
       EmailUsuarios = mongoose.model('emailusuarios'),
       moment = require('moment')
-      dataLocal = moment(new Date()).format("DD/MM/YYYY");
+      dataLocal = moment(new Date()).format("DD/MM/YYYY"),
+      InfoEnviarEmail = require('../config/sendMail')
 
 module.exports = {
     async getHome(req, res) {
@@ -48,6 +49,7 @@ module.exports = {
                     data: dataLocal
                 })
                 novoEmail.save().then(() => {
+                    InfoEnviarEmail(req.body.notificaEmail)
                     req.flash("success_msg", "Sucesso! Agora você ira receber novidades em primeira mão.")
                     res.redirect("/")
                 }).catch((err) => {

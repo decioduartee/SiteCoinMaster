@@ -1,7 +1,7 @@
+require("../models/SuperUsuario")
 const localStrategy = require("passport-local").Strategy
 const mongoose = require("mongoose")
 const bcrypt = require("bcryptjs")
-require("../models/SuperUsuario")
 const superUsuario = mongoose.model("superusuarios")
 
 module.exports = function(passport) {
