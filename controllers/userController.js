@@ -39,24 +39,29 @@ module.exports = {
     },
 
     async postNotifica(req, res) {
-        EmailUsuarios.findOne({email: req.body.notificaEmail}).then((email) => {
-            if(email) {
-                req.flash("error_msg", "Email já registrado! tente outro")
-                res.redirect("/")
-            } else {
-                const novoEmail = new EmailUsuarios({
-                    email: req.body.notificaEmail,
-                    data: dataLocal
-                })
-                novoEmail.save().then(() => {
-                    InfoEnviarEmail(req.body.notificaEmail)
-                    req.flash("success_msg", "Sucesso! Agora você ira receber novidades em primeira mão.")
+        if(!req.body.notificaEmail || typeof req.body.notificaEmail === '') {
+            req.flash("error_msg", "Campo de email vazio, Tente novamente!")
+            res.redirect("/")
+        } else {
+            EmailUsuarios.findOne({email: req.body.notificaEmail}).then((email) => {
+                if(email) {
+                    req.flash("error_msg", "Email já registrado! tente outro")
                     res.redirect("/")
-                }).catch((err) => {
-                    req.flash("error_msg", "Houve um erro interno")
-                    res.redirect("/")
-                })
-            }
-        })
+                } else {
+                    const novoEmail = new EmailUsuarios({
+                        email: req.body.notificaEmail,
+                        data: dataLocal
+                    })
+                    novoEmail.save().then(() => {
+                        InfoEnviarEmail(req.body.notificaEmail)
+                        req.flash("success_msg", "Sucesso! Agora você ira receber novidades em primeira mão.")
+                        res.redirect("/")
+                    }).catch((err) => {
+                        req.flash("error_msg", "Houve um erro interno")
+                        res.redirect("/")
+                    })
+                }
+            })
+        }
     }
 }
