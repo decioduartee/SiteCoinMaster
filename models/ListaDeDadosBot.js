@@ -1,5 +1,7 @@
 const mongoose = require("mongoose"),
-      Schema = mongoose.Schema;
+      Schema = mongoose.Schema,
+      moment = require('moment'),
+      dataLocal = moment(new Date()).format("DD/MM/YYYY");
 
 const DadosBot = new Schema({
     titulo: {
@@ -12,7 +14,8 @@ const DadosBot = new Schema({
     },
     dataDaURL: {
         type: String,
-        require: true
+        require: true,
+        default: dataLocal
     },
     dataDeRegistro:{
         type: String,
