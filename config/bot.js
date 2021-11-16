@@ -81,7 +81,7 @@ async function ligarBot() {
   list.forEach(async (items, i) => {
     await DadosBot.findOne({link: list[i].link}).lean().then((dados) => {
       if(dados) {
-        return;
+        break;
       } else {
         const novosDados = new DadosBot({
           titulo: list[i].titulo,
