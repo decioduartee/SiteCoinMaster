@@ -6,7 +6,7 @@ const puppeteer = require('puppeteer'),
       dataLocal = moment(new Date()).format("DD/MM/YYYY"),
       cronJob = require('cron').CronJob;
 // Vai rodar todos os dias as 9h e as 14h 
-new cronJob('0 9,14 * * *', async () => {
+new cronJob('0 9,13 * * *', async () => {
   await ligarBot();
 }, null, true);
 
