@@ -4,7 +4,7 @@ setTimeout(() => {
     if (node.parentNode) {
         node.parentNode.removeChild(node);
     }
-}, 3500);
+}, 4500);
 
 // Mudando o ano anualmente no footer copyright
 let data = document.querySelector('.copyright'),

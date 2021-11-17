@@ -7,7 +7,7 @@ EmailUsuarios = mongoose.model('emailusuarios'),
 moment = require('moment'),
 dataLocal = moment(new Date()).format("DD/MM/YYYY"),
 enviarEmail = require('../config/sendMail'),
-validaSchema = require('../config/validaSchema')
+validaSchemaFooter = require('../config/validaSchema');
 
 module.exports = {
     async getHome(req, res) {
@@ -42,9 +42,9 @@ module.exports = {
 
     async postNotifica(req, res) {
         const userEmail = req.body.notificaEmail,
-        valida = validaSchema({ email: userEmail });
+        valida = validaSchemaFooter.validate({ email: userEmail });
 
-        if(valida.error) {
+        if(!valida.error == false) {
             req.flash("error_msg", "Email invalido, Tente novamente!")
             res.redirect("/")
         } else {

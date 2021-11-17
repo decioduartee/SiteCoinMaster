@@ -6,7 +6,7 @@ SuperUsuarios = mongoose.model('superusuarios'),
 EmailUsuarios = mongoose.model('emailusuarios')
 bcrypt = require('bcryptjs'),
 passport = require('passport'),
-validaSchema = require('../config/validaSchema')
+validaSchemaCadastro = require('../config/validaSchema')
 
 module.exports = {
     async getLogin(req, res) {
@@ -33,9 +33,9 @@ module.exports = {
 
     async postRegistro(req, res) {
         const user = req.body,
-        valida = validaSchema({ nome: user.nomeRegistro, email: user.emailRegistro, senha: user.senhaRegistro1});
+        valida = validaSchemaCadastro.validate({ nome: user.nomeRegistro, email: user.emailRegistro, senha: user.senhaRegistro1});
 
-        if(valida.error) {
+        if(!valida.error == false) {
             req.flash("error_msg", "Dados invalidos, Tente novamente!")
             res.redirect("/admin/registro")
         } else {

@@ -87,7 +87,6 @@ async function ligarBot() {
 }
 
 function apagarDados() {
-  console.log('ligado')
   DadosBot.find({}, {dataDaURL: 1, _id: 0}).then(async (datas) => {
     datas.forEach((items, i) => {
       //Segunda verificada, para checar se existe datas vencidas no banco de dados 
