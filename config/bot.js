@@ -4,10 +4,16 @@ const puppeteer = require('puppeteer'),
       DadosBot  = mongoose.model('botdados'),
       moment = require('moment'),
       dataLocal = moment(new Date()).format("DD/MM/YYYY"),
-      cronJob = require('cron').CronJob;
+      cronJob = require('cron').CronJob,
+      diaDeHoje = new Date().getDate();
 // Vai rodar todos os dias as 9h e as 14h 
 new cronJob('0 9,13 * * *', async () => {
   await ligarBot();
+}, null, true);
+
+// Se apagar os dados todos os dias a meia noite
+new cronJob('0 00 * * * *', async () => {
+  await apagarDados();
 }, null, true);
 
 async function ligarBot() {
@@ -54,10 +60,8 @@ async function ligarBot() {
   });
 
   list.forEach((items, i) => {
-    DadosBot.findOne({link: list[i].link}).lean().then((dados) => {
-      const dataDosLinks = parseInt(list[i].dataDaURL),
-            diaDeHoje = new Date().getDate();
-
+    DadosBot.findOne({link: list[i].link}).lean().sort({dataDaURL: -1}).then((dados) => {
+      dataDosLinks = parseInt(list[i].dataDaURL)
       if(dataDosLinks < diaDeHoje) {
         return; //Se a data for menor do que a de hoje nao fazer nada
       } else if(dados) {
@@ -70,27 +74,35 @@ async function ligarBot() {
           dataDeRegistro: dataLocal,
         });
         novosDados.save().then(() => {
-          DadosBot.find({}, {dataDaURL: 1, _id: 0}).then((datas) => {
-            //Segunda verificada, para checar se existe datas vencidas no banco de dados 
-            const dataNumber = parseInt(datas[i].dataDaURL),
-                  validade = (dataNumber + 3) * 2,
-                  vencimento = diaDeHoje * 2;
-
-            if(validade <= vencimento) {
-              DadosBot.deleteOne({dataDaURL: datas[i].dataDaURL}).then(() => {
-                //Apagando datas vencidas
-                //console.log(`datas apagadas: [${datas[i].dataDaURL}]`); 
-              }).catch((erro) => {
-                console.log(erro)
-              });
-            };
-          });
+          apagarDados()
         }).catch((err) => {
             console.log(err);
         });
       };
     });
   });
+
+  function apagarDados() {
+    DadosBot.find({}, {dataDaURL: 1, _id: 0}).then(async (datas) => {
+      datas.forEach((items, i) => {
+        //Segunda verificada, para checar se existe datas vencidas no banco de dados 
+        const dataNumber = parseInt(datas[i].dataDaURL),
+        validade = (dataNumber + 3) * 2,
+        vencimento = diaDeHoje * 2;
+
+        if(validade <= vencimento) {
+          DadosBot.deleteOne({dataDaURL: datas[i].dataDaURL}).then(() => {
+            //Apagando datas vencidas
+            console.log(`datas apagadas: [${datas[i].dataDaURL}]`); 
+          }).catch((erro) => {
+            console.log(erro)
+          });
+        };
+      })
+    }).catch((erro) => {
+      console.log(erro)
+    });
+  }
 
   debugger;
   await browser.close();
