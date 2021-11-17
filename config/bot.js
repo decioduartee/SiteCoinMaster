@@ -12,8 +12,8 @@ new cronJob('0 9,13 * * *', async () => {
 }, null, true);
 
 // Se apagar os dados todos os dias a meia noite
-new cronJob('0 00 * * * *', async () => {
-  await apagarDados();
+new cronJob('0 00 * * *', () => {
+  apagarDados()
 }, null, true);
 
 async function ligarBot() {
@@ -74,6 +74,7 @@ async function ligarBot() {
           dataDeRegistro: dataLocal,
         });
         novosDados.save().then(() => {
+          // checando se tem datas vencidas, se tiver apague
           apagarDados()
         }).catch((err) => {
             console.log(err);
@@ -81,31 +82,31 @@ async function ligarBot() {
       };
     });
   });
-
-  function apagarDados() {
-    DadosBot.find({}, {dataDaURL: 1, _id: 0}).then(async (datas) => {
-      datas.forEach((items, i) => {
-        //Segunda verificada, para checar se existe datas vencidas no banco de dados 
-        const dataNumber = parseInt(datas[i].dataDaURL),
-        validade = (dataNumber + 3) * 2,
-        vencimento = diaDeHoje * 2;
-
-        if(validade <= vencimento) {
-          DadosBot.deleteOne({dataDaURL: datas[i].dataDaURL}).then(() => {
-            //Apagando datas vencidas
-            console.log(`datas apagadas: [${datas[i].dataDaURL}]`); 
-          }).catch((erro) => {
-            console.log(erro)
-          });
-        };
-      })
-    }).catch((erro) => {
-      console.log(erro)
-    });
-  }
-
   debugger;
   await browser.close();
 }
+
+function apagarDados() {
+  console.log('ligado')
+  DadosBot.find({}, {dataDaURL: 1, _id: 0}).then(async (datas) => {
+    datas.forEach((items, i) => {
+      //Segunda verificada, para checar se existe datas vencidas no banco de dados 
+      const dataNumber = parseInt(datas[i].dataDaURL),
+      validade = (dataNumber + 3) * 2,
+      vencimento = diaDeHoje * 2;
+
+      if(validade <= vencimento) {
+        DadosBot.deleteOne({dataDaURL: datas[i].dataDaURL}).then(() => {
+          //Apagando datas vencidas
+          console.log(`datas apagadas: [${datas[i].dataDaURL}]`); 
+        }).catch((erro) => {
+          console.log(erro)
+        });
+      };
+    });
+  }).catch((erro) => {
+    console.log(erro)
+  });
+};
 
 module.exports = ligarBot;
