@@ -9,7 +9,7 @@ const mongoose  = require("mongoose"),
 
 module.exports = {
     async getHome(req, res) {
-        res.render("index")
+        res.render("inicio")
     },
 
     async getGiros(req, res) {
@@ -53,7 +53,7 @@ module.exports = {
             erros.push({texto: "Email invalido, Tente novamente"})
         }
         if(erros.length > 0) {
-            res.render("index", {erros: erros})
+            res.render("inicio", {erros: erros})
         } else {
             EmailUsuarios.findOne({email: email}).then((email) => {
                 if(email) {
