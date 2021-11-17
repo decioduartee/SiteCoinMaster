@@ -1,10 +1,12 @@
-require('../models/SuperUsuario')
-require('../models/EmailUsuario')
+require('../models/SuperUsuario');
+require('../models/EmailUsuario');
+
 const mongoose  = require("mongoose"),
-      SuperUsuarios = mongoose.model('superusuarios'),
-      EmailUsuarios = mongoose.model('emailusuarios')
-      bcrypt = require('bcryptjs'),
-      passport = require('passport');
+SuperUsuarios = mongoose.model('superusuarios'),
+EmailUsuarios = mongoose.model('emailusuarios')
+bcrypt = require('bcryptjs'),
+passport = require('passport'),
+validaSchema = require('../config/validaSchema')
 
 module.exports = {
     async getLogin(req, res) {
@@ -30,34 +32,22 @@ module.exports = {
     },
 
     async postRegistro(req, res) {
-        let erros = []
-        if(!req.body.nomeRegistro || typeof req.body.nomeRegistro === '') {
-            erros.push({texto: "Nome invalido"})
-        }
-        if(!req.body.emailRegistro || typeof req.body.emailRegistro  === '') {
-            erros.push({texto: "E-mail invalido"})
-        }
-        if(!req.body.senhaRegistro1 || typeof req.body.senhaRegistro1 === '') {
-            erros.push({texto: "Senha invalido"})
-        }
-        if(req.body.senhaRegistro1.length <= 4) {
-            erros.push({texto: "Senha muito curta"})
-        }
-        if(req.body.senhaRegistro1 !== req.body.senhaRegistro2) {
-            erros.push({texto: "As senhas são diferentes, tente novamente"})
-        }
-        if(erros.length > 0) {
-            res.render("admin/registro", {erros: erros})
+        const user = req.body,
+        valida = validaSchema({ nome: user.nomeRegistro, email: user.emailRegistro, senha: user.senhaRegistro1});
+
+        if(valida.error) {
+            req.flash("error_msg", "Dados invalidos, Tente novamente!")
+            res.redirect("/admin/registro")
         } else {
-            SuperUsuarios.findOne({email: req.body.emailRegistro}).then((superusuario) => {
+            SuperUsuarios.findOne({email: user.emailRegistro}).then((superusuario) => {
                 if(superusuario) {
                     req.flash("error_msg", "Já existe uma conta com esse email cadastrada em nosso sistema!")
                     res.redirect("/admin/registro")
                 } else {
                     const novoSuperUsuario = new SuperUsuarios({
-                        nome: req.body.nomeRegistro,
-                        email: req.body.emailRegistro,
-                        senha: req.body.senhaRegistro1
+                        nome: user.nomeRegistro,
+                        email: user.emailRegistro,
+                        senha: user.senhaRegistro1
                     })
                     bcrypt.genSalt(10, (erro, salt) => {
                         bcrypt.hash(novoSuperUsuario.senha, salt, (erro, hash) => {

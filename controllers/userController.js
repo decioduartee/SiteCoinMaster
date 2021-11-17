@@ -1,11 +1,13 @@
 require('../models/ListaDeDadosBot')
 require('../models/EmailUsuario')
+
 const mongoose  = require("mongoose"),
-      DadosBot   = mongoose.model('botdados'),
-      EmailUsuarios = mongoose.model('emailusuarios'),
-      moment = require('moment'),
-      dataLocal = moment(new Date()).format("DD/MM/YYYY"),
-      InfoEnviarEmail = require('../config/sendMail');
+DadosBot   = mongoose.model('botdados'),
+EmailUsuarios = mongoose.model('emailusuarios'),
+moment = require('moment'),
+dataLocal = moment(new Date()).format("DD/MM/YYYY"),
+enviarEmail = require('../config/sendMail'),
+validaSchema = require('../config/validaSchema')
 
 module.exports = {
     async getHome(req, res) {
@@ -40,22 +42,13 @@ module.exports = {
 
     async postNotifica(req, res) {
         const userEmail = req.body.notificaEmail,
-            exclude = /[^@\-\.\w]|^[_@\.\-]|[\._\-]{2}|[@\.]{2}|(@)[^@]*\1/,
-            check = /@[\w\-]+\./,
-            checkend = /\.[a-zA-Z]{2,3}$/;
+        valida = validaSchema({ email: userEmail });
 
-        let erros = [];
-            
-        if(!userEmail || typeof userEmail === '') {
-            erros.push({texto: "Email vazio, Tente novamente"})
-        }
-        if(((userEmail.search(exclude) != -1)||(userEmail.search(check)) == -1)||(userEmail.search(checkend) == -1)) {
-            erros.push({texto: "Email invalido, Tente novamente"})
-        }
-        if(erros.length > 0) {
-            res.render("inicio", {erros: erros})
+        if(valida.error) {
+            req.flash("error_msg", "Email invalido, Tente novamente!")
+            res.redirect("/")
         } else {
-            EmailUsuarios.findOne({email: email}).then((email) => {
+            EmailUsuarios.findOne({email: userEmail}).then((email) => {
                 if(email) {
                     req.flash("error_msg", "Email já registrado! tente outro")
                     res.redirect("/")
@@ -65,7 +58,7 @@ module.exports = {
                         data: dataLocal
                     })
                     novoEmail.save().then(() => {
-                        InfoEnviarEmail(userEmail)
+                        enviarEmail(userEmail)
                         req.flash("success_msg", "Sucesso! Check seu email, ou area de spam.")
                         res.redirect("/")
                     }).catch((err) => {
