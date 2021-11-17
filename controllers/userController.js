@@ -39,21 +39,33 @@ module.exports = {
     },
 
     async postNotifica(req, res) {
-        if(!req.body.notificaEmail || typeof req.body.notificaEmail === '') {
-            req.flash("error_msg", "Campo de email vazio, Tente novamente!")
-            res.redirect("/")
+        const userEmail = req.body.notificaEmail,
+            exclude = /[^@\-\.\w]|^[_@\.\-]|[\._\-]{2}|[@\.]{2}|(@)[^@]*\1/,
+            check = /@[\w\-]+\./,
+            checkend = /\.[a-zA-Z]{2,3}$/;
+
+        let erros = [];
+            
+        if(!userEmail || typeof userEmail === '') {
+            erros.push({texto: "Email vazio, Tente novamente"})
+        }
+        if(((userEmail.search(exclude) != -1)||(userEmail.search(check)) == -1)||(userEmail.search(checkend) == -1)) {
+            erros.push({texto: "Email invalido, Tente novamente"})
+        }
+        if(erros.length > 0) {
+            res.render("index", {erros: erros})
         } else {
-            EmailUsuarios.findOne({email: req.body.notificaEmail}).then((email) => {
+            EmailUsuarios.findOne({email: email}).then((email) => {
                 if(email) {
                     req.flash("error_msg", "Email já registrado! tente outro")
                     res.redirect("/")
                 } else {
                     const novoEmail = new EmailUsuarios({
-                        email: req.body.notificaEmail,
+                        email: userEmail,
                         data: dataLocal
                     })
                     novoEmail.save().then(() => {
-                        InfoEnviarEmail(req.body.notificaEmail)
+                        InfoEnviarEmail(userEmail)
                         req.flash("success_msg", "Sucesso! Check seu email, ou area de spam.")
                         res.redirect("/")
                     }).catch((err) => {

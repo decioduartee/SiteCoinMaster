@@ -30,7 +30,7 @@ module.exports = {
     },
 
     async postRegistro(req, res) {
-        var erros = []
+        let erros = []
         if(!req.body.nomeRegistro || typeof req.body.nomeRegistro === '') {
             erros.push({texto: "Nome invalido"})
         }

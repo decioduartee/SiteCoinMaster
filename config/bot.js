@@ -1,13 +1,13 @@
-require('../models/ListaDeDadosBot')
+require('../models/ListaDeDadosBot');
 const puppeteer = require('puppeteer'),
       mongoose  = require("mongoose"),
       DadosBot  = mongoose.model('botdados'),
       moment = require('moment'),
       dataLocal = moment(new Date()).format("DD/MM/YYYY"),
       cronJob = require('cron').CronJob;
-// Vai rodar todos os dias as 9h e as 14h
+// Vai rodar todos os dias as 9h e as 14h 
 new cronJob('0 9,14 * * *', async () => {
-  await ligarBot()
+  await ligarBot();
 }, null, true);
 
 async function ligarBot() {
@@ -53,25 +53,33 @@ async function ligarBot() {
     return arrayDados;
   });
 
-  list.forEach(async (items, i) => {
-    await DadosBot.findOne({link: list[i].link}).lean().then((dados) => {
-      if(dados) {
-        return
+  list.forEach((items, i) => {
+    DadosBot.findOne({link: list[i].link}).lean().then((dados) => {
+      const dataDosLinks = parseInt(list[i].dataDaURL),
+            diaDeHoje = new Date().getDate();
+
+      if(dataDosLinks < diaDeHoje) {
+        return; //Se a data for menor do que a de hoje nao fazer nada
+      } else if(dados) {
+        return; //Se o link ja existe no banco de dados nao fazer nada
       } else {
         const novosDados = new DadosBot({
           titulo: list[i].titulo,
           link: list[i].link,
           dataDaURL: list[i].dataDaURL,
-          dataDeRegistro: dataLocal
-        })
-        novosDados.save().then(async () => {
-          await DadosBot.find({}, {dataDaURL: 1, _id: 0}).then(async (datas) => { 
-            dataNumber = parseInt(datas[i].dataDaURL),
-            validade = dataNumber + 3,
-            diaDeHoje = new Date().getDate();
-            if(validade == diaDeHoje) {
-              await DadosBot.deleteOne({dataDaURL: datas[i].dataDaURL}).then(() => {
-                //console.log('dados apagados') 
+          dataDeRegistro: dataLocal,
+        });
+        novosDados.save().then(() => {
+          DadosBot.find({}, {dataDaURL: 1, _id: 0}).then((datas) => {
+            //Segunda verificada, para checar se existe datas vencidas no banco de dados 
+            const dataNumber = parseInt(datas[i].dataDaURL),
+                  validade = (dataNumber + 3) * 2,
+                  vencimento = diaDeHoje * 2;
+
+            if(validade <= vencimento) {
+              DadosBot.deleteOne({dataDaURL: datas[i].dataDaURL}).then(() => {
+                //Apagando datas vencidas
+                //console.log(`datas apagadas: [${datas[i].dataDaURL}]`); 
               }).catch((erro) => {
                 console.log(erro)
               });
