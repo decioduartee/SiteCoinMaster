@@ -117,6 +117,46 @@ a.compartilhar__icon {
     padding: 0 .3rem;
 }
 
+.compartilhar__icon svg {
+    max-width: 45px;
+}
+
+.grupo-telegram {
+    width: 100%;
+    height: auto;
+    border-radius: .25rem;
+    background: #1e96c8;
+    margin: 2rem 0;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.grupo-telegram-icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    left: 50%;
+    transform: translate(-50%, -75%);
+}
+
+.telegram-grupo-text h3 {
+    font-family: "Rajdhani",sans-serif;
+    font-weight: 900;
+    font-size: 1.7rem;
+    line-height: 1.2em;
+    color: var(--branco);
+    text-align: center;
+}
+
+.telegram-grupo-text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 1.5rem 0;
+}
+
 .infocoin__container {
     display: grid;
     align-items: center;
@@ -146,10 +186,6 @@ p.infocoin__descricao {
     font-size: .9rem;
     color: var(--pretoclaro);
     letter-spacing: 0;
-}
-
-.compartilhar__icon svg {
-    max-width: 45px;
 }
 
 .infocoin__icon {
