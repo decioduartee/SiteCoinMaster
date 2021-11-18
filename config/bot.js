@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer'),
       cronJob = require('cron').CronJob,
       diaDeHoje = new Date().getDate();
 // Vai rodar todos os dias as 9h e as 14h 
-new cronJob('0 9,13 * * *', async () => {
+new cronJob('10 9,13,14,15 * * *', async () => {
   await ligarBot();
 }, null, true);
 
@@ -97,7 +97,7 @@ function apagarDados() {
       if(validade <= vencimento) {
         DadosBot.deleteOne({dataDaURL: datas[i].dataDaURL}).then(() => {
           //Apagando datas vencidas
-          console.log(`datas apagadas: [${datas[i].dataDaURL}]`); 
+          //console.log(`datas apagadas: [${datas[i].dataDaURL}]`); 
         }).catch((erro) => {
           console.log(erro)
         });
