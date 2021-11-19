@@ -176,7 +176,7 @@ h3.titulo-config-bot {
 h3.titulo-config-bot::after {
     content: '';
     width: 10rem;
-    height: .1rem;
+    height: .2rem;
     background: cornflowerblue;
     position: absolute;
     display: flex;
