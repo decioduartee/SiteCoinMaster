@@ -340,6 +340,11 @@
     .btn-bot-submit {
         height: 2rem;
     }
+
+    .inputs-bot .bot-input {
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+    }
 }
 
 @media only screen and (max-width: 280px) {
