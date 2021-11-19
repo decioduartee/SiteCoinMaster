@@ -109,6 +109,15 @@
     .sobre_footer small {
         letter-spacing: -.5px;
     }
+
+    .content-config-bot {
+    }
+
+    .container-bot {
+        flex-direction: column;
+        gap: 10px;
+        height: 33rem;
+    }
 }
 
 @media only screen and (max-width: 768px) {
