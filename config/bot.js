@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer'),
       cronJob = require('cron').CronJob,
       diaDeHoje = new Date().getDate();
 // Vai rodar a cada 45minutoa 
-new cronJob('*/10 * * * *', async () => {
+new cronJob('*/25 * * * *', async () => {
   await ligarBot();
 }, null, true);
 
