@@ -153,7 +153,7 @@
     display: flex;
 }
 
-button {
+.btn-bot-submit button {
     width: 50%;
     height: 100%;
     border: none;

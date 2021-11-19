@@ -324,6 +324,22 @@
         height: 2.2rem;
         font-size: 1rem;
     }
+
+    h3.titulo-config-bot {
+        font-size: 1rem;
+    }
+
+    .inputs-bot h3 {
+        font-size: .7rem;
+    }
+
+    .btn-bot-submit button {
+        font-size: .7rem;
+    }
+
+    .btn-bot-submit {
+        height: 2rem;
+    }
 }
 
 @media only screen and (max-width: 280px) {
