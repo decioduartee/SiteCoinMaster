@@ -103,7 +103,64 @@
     display: inline-flex;
     width: 100%;
     height: 100%;
-    background: rebeccapurple; /* #ececec */
+    /* background: rebeccapurple; */ /* #ececec */
     border-radius: 8px;
     padding: 1rem;
+}
+
+.form-dados-bot {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.inputs-bot {
+    position: relative;
+    width: 100%;
+    padding: .25rem;
+}
+
+.inputs-bot h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--pretoescuro);
+}
+
+.inputs-bot .bot-input {
+    width: 100%;
+    height: 2rem;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--cinza);
+    background: transparent;
+    color: var(--pretoclaro);
+    margin-bottom: .8rem;
+    font-size: 1rem;
+}
+
+.config-apaga_dados {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.btn-bot-submit {
+    width: 100%;
+    height: 2.2rem;
+    display: flex;
+}
+
+button {
+    width: 50%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: cornflowerblue;
+    color: var(--branco);
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
 }

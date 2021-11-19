@@ -38,24 +38,24 @@
         {{#if cargo}}
             {{>_navbarRoot}}
                 <div class="pagina grid-container">
-            {{#if error}}
-                <div class="alert error_msg">{{error}}</div>
-            {{else}}
-            {{/if}}
+                {{#if error}}
+                    <div class="alert error_msg">{{error}}</div>
+                {{else}}
+                {{/if}}
                 {{>_msg}}
                 {{{body}}}
                 </div>
         {{else}}
-        {{>_navbar}}
-        <div class="pagina grid-container">
-            {{#if error}}
-                <div class="alert error_msg">{{error}}</div>
-            {{else}}
-            {{/if}}
-            {{>_msg}}
-            {{{body}}}
-        </div>
-        {{>_footer}}
+            {{>_navbar}}
+            <div class="pagina grid-container">
+                {{#if error}}
+                    <div class="alert error_msg">{{error}}</div>
+                {{else}}
+                {{/if}}
+                {{>_msg}}
+                {{{body}}}
+            </div>
+            {{>_footer}}
         {{/if}}
     </body>
 </html>

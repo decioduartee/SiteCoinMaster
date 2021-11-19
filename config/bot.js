@@ -12,7 +12,7 @@ new cronJob('0 */45 * * * *', async () => {
 }, null, true, 'America/Sao_Paulo');
 
 // Se apagar os dados todos os dias a meia noite
-new cronJob('0 00 * * *', () => {
+new cronJob('0 23 * * *', () => {
   apagarDados()
 }, null, true);
 
@@ -44,8 +44,10 @@ async function ligarBot() {
           dataDaURL = list[i].href;
             dataDaURL = dataDaURL.split('_');
             dataDaURL = dataDaURL[2];
-      if(isNaN(dataDaURL) == false) {
+      if(Number.isNaN(dataDaURL)) {
         editData = dataDaURL[6] + dataDaURL[7] + '/' + dataDaURL[4] + dataDaURL[5] + '/' + dataDaURL[0] + dataDaURL[1] + dataDaURL[2] + dataDaURL[3];
+      } else {
+        editData = "Sem Data"
       }
       arrayDados.push({
         titulo: titulo
@@ -60,12 +62,14 @@ async function ligarBot() {
   });
 
   list.forEach((items, i) => {
-    DadosBot.findOne({link: list[i].link}).lean().sort({dataDaURL: -1}).then((dados) => {
-      dataDosLinks = parseInt(list[i].dataDaURL)
-      if(dataDosLinks < diaDeHoje) {
-        return; //Se a data for menor do que a de hoje nao fazer nada
-      } else if(dados) {
+    DadosBot.findOne({link: list[i].link}).then((dados) => {
+      const dataDosLinks = parseInt(list[i].dataDaURL)
+      if(dados) {
         return; //Se o link ja existe no banco de dados nao fazer nada
+      } else if(Number.isNaN(dataDosLinks)) {
+        return; //Se o link nao tiver data nao adicione ao banco de dados
+      } else if(dataDosLinks < diaDeHoje) {
+        return; //Se a data for menor do que a de hoje nao fazer nada
       } else {
         const novosDados = new DadosBot({
           titulo: list[i].titulo,
@@ -74,7 +78,7 @@ async function ligarBot() {
           dataDeRegistro: dataLocal,
         });
         novosDados.save().then(() => {
-          // checando se tem datas vencidas, se tiver apague
+          // apgando datas vencidas sempre que salvar novos dados no db
           apagarDados()
         }).catch((err) => {
             console.log(err);
