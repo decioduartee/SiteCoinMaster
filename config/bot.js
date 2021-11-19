@@ -6,7 +6,7 @@ const puppeteer = require('puppeteer'),
       dataLocal = moment(new Date()).format("DD/MM/YYYY"),
       cronJob = require('cron').CronJob,
       diaDeHoje = new Date().getDate();
-// Vai rodar a cada 45minutoa 
+// Vai rodar a cada 20minutoa 
 new cronJob('*/20 * * * *', async () => {
   await ligarBot();
   console.log('executando bot')
@@ -45,7 +45,7 @@ async function ligarBot() {
           dataDaURL = list[i].href;
             dataDaURL = dataDaURL.split('_');
             dataDaURL = dataDaURL[2];
-      if(Number.isNaN(dataDaURL)) {
+      if(isNaN(dataDaURL) == false) {
         editData = dataDaURL[6] + dataDaURL[7] + '/' + dataDaURL[4] + dataDaURL[5] + '/' + dataDaURL[0] + dataDaURL[1] + dataDaURL[2] + dataDaURL[3];
       } else {
         editData = "Sem Data"
@@ -67,7 +67,7 @@ async function ligarBot() {
       const dataDosLinks = parseInt(list[i].dataDaURL)
       if(dados) {
         return; //Se o link ja existe no banco de dados nao fazer nada
-      } else if(Number.isNaN(dataDosLinks)) {
+      } else if(isNaN(dataDosLinks) == true) {
         return; //Se o link nao tiver data nao adicione ao banco de dados
       } else if(dataDosLinks < diaDeHoje) {
         return; //Se a data for menor do que a de hoje nao fazer nada
