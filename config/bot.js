@@ -6,10 +6,10 @@ const puppeteer = require('puppeteer'),
       dataLocal = moment(new Date()).format("DD/MM/YYYY"),
       cronJob = require('cron').CronJob,
       diaDeHoje = new Date().getDate();
-// Vai rodar todos os dias as 9h e as 14h 
-new cronJob('10 9,13,14,15 * * *', async () => {
+// Vai rodar a cada 45minutoa 
+new cronJob('0 */45 * * * *', async () => {
   await ligarBot();
-}, null, true);
+}, null, true, 'America/Sao_Paulo');
 
 // Se apagar os dados todos os dias a meia noite
 new cronJob('0 00 * * *', () => {

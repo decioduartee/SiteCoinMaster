@@ -87,5 +87,9 @@ module.exports = {
         SuperUsuarios.find().sort({cargo: -1}).lean().then((dados) => {
             res.render("admin/superUsuarios", {dados: dados})
         })
+    },
+
+    async getBot(req, res) {
+        res.render("admin/bot")
     }
 }

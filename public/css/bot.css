@@ -1,0 +1,109 @@
+.container-bot {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: 25rem;
+    background: #ececec;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.content-bot {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
+.content-bot::-webkit-scrollbar {
+    width: 3px;
+    background-color: #ececec;
+}
+
+.content-bot::-webkit-scrollbar-thumb {
+    background: cornflowerblue;
+}
+
+.bot-mensagem {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    background: cornflowerblue;
+    border-radius: 8px;
+    margin: .5rem;
+    margin-left: .8rem;
+}
+
+.bot-imagem::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -20px;
+    top: -8px;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #6495ed;
+    display: flex;
+}
+
+.bot-imagem {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--branco);
+    margin: .5rem;
+}
+
+.bot-imagem img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.bot-content-mensagem {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    gap: 5px;
+}
+
+.bot-content-mensagem p {
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--branco);
+    margin: 0;
+    padding: 0;
+}
+
+.bot-hora_mensagem {
+    position: relative;
+    width: 100%;
+    height: .5rem;
+}
+
+.bot-hora_mensagem h1 {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: var(--branco);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: end;
+    align-items: stretch;
+}
+
+.content-config-bot {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    background: rebeccapurple; /* #ececec */
+    border-radius: 8px;
+    padding: 1rem;
+}

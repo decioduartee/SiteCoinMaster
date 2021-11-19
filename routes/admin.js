@@ -19,6 +19,8 @@ router.get("/usuarios", admin, adminController.getUsuarios)
 
 router.get("/superusuarios", admin, adminController.getSuperUsuarios)
 
+router.get("/bot", adminController.getBot)
+
 
 
 
