@@ -250,6 +250,14 @@
     .inicio__text {
         padding: 1rem;
     }
+    .content-erro404 .svg-erro404 {
+        max-width: 20rem;
+        max-height: 20rem;
+    }
+
+    .content-erro404 .titulo-erro {
+        font-size: 1rem;
+    }
 }
 
 @media only screen and (max-width: 411px) {
