@@ -22,7 +22,7 @@
     "nodemailer": "^6.6.3",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "puppeteer": "^11.0.0",
+    "puppeteer": "^13.1.2",
     "remove": "^0.1.5"
   },
   "devDependencies": {
