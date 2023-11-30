@@ -12,7 +12,7 @@
     "crypto": "^1.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "express-handlebars": "^5.2.1",
+    "express-handlebars": "^7.0.0",
     "express-session": "^1.17.2",
     "fsevents": "^2.3.2",
     "googleapis": "^83.0.0",
@@ -22,7 +22,7 @@
     "nodemailer": "^6.6.3",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "puppeteer": "^11.0.0",
+    "puppeteer": "^18.2.0",
     "remove": "^0.1.5"
   },
   "devDependencies": {
